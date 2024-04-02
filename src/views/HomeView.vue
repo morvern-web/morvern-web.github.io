@@ -28,8 +28,6 @@ export default {
 <style lang="less" scoped>
 .home-container {
   height: 100%;
-  max-width: 1280px;
-  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

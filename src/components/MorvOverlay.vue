@@ -130,6 +130,12 @@ export default {
       max-height: 95%;
       width: 95%;
       padding: 15px 10px;
+      .overlay-close-btn {
+        height: 25px;
+        width: 25px;
+        top: 10px;
+        right: 10px;
+      }
     }
   }
 }

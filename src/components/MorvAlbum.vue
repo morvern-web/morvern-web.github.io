@@ -17,14 +17,14 @@
 
         <div class="album-info-container">
           <div class="album-title-container">
-            <div class="album-title">
+            <h3 class="album-title">
               {{ album.title }}
-            </div>
-            <div class="album-details">
+            </h3>
+            <h4 class="album-details">
               <span>{{ $date(album.date).format('DD MMMM YYYY') }}</span>
               <span v-if="album.label"> - {{ album.label }}</span>
               <span v-if="album.catNumber"> - {{ album.catNumber }}</span>
-            </div>
+            </h4>
           </div>
 
           <div class="album-info">
@@ -237,10 +237,6 @@ export default {
   margin-bottom: 1rem;
   .album-title {
     margin-right: 25px;
-    font-size: 1.6rem;
-    font-weight: 900;
-    font-style: italic;
-    color: white;
   }
   .album-details {
     font-size: 1.1rem;

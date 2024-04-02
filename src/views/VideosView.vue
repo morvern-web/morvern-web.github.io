@@ -9,9 +9,9 @@
             @click="itemClick(video)"
           />
         </div>
-        <div class="video-title">
+        <h4 class="video-title">
           {{ video.title }}
-        </div>
+        </h4>
       </div>
     </div>
 
@@ -50,9 +50,6 @@ export default {
 
 <style lang="less" scoped>
 .video-container {
-  max-width: 1280px;
-  margin: auto;
-
   .video-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -72,8 +69,6 @@ export default {
 
     .video-title {
       text-align: center;
-      font-size: 1.1rem;
-      color: white;
     }
   }
 }

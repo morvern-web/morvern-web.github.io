@@ -4,15 +4,16 @@
       v-for="(dateGroup, groupHeader) in groupedDates"
       class="live-group"
     >
-      <div class="live-group-header">
+      <h1 class="live-group-header">
         {{ groupHeader }}
-      </div>
+      </h1>
 
       <div
         v-if="!dateGroup[0]"
-        class="live-date-entry live-group-empty"
+        class="live-group-empty live-date-entry"
       >
-        We have not announced any upcoming shows at this time. Check back often for updates.
+        <span>We have not announced any upcoming shows at this time. </span>
+        <span>Check back often for updates.</span>
       </div>
 
       <div
@@ -20,9 +21,9 @@
         class="live-date-group"
       >
         <div v-for="(shows, dateHeader) in group">
-          <div class="live-date-header">
+          <h2 class="live-date-header">
             {{ dateHeader }}
-          </div>
+          </h2>
 
           <div
             v-for="show in shows"
@@ -105,9 +106,6 @@ export default {
 
 <style lang="less" scoped>
 .live-container {
-  max-width: 1280px;
-  margin: auto;
-
   .live-group {
     &:not(:last-child) {
       padding-bottom: 25px;
@@ -115,22 +113,11 @@ export default {
       margin-bottom: 40px;
     }
 
-    .live-group-header {
-      padding-bottom: 25px;
-      font-size: 2rem;
-      font-weight: bold;
-      color: white;
-    }
-
     .live-date-group {
       margin-bottom: 25px;
 
       .live-date-header {
-        padding-left: 5px;
-        padding-bottom: 5px;
         border-bottom: 2px solid grey;
-        font-size: 1.5rem;
-        font-weight: bold;
       }
     }
 
@@ -148,6 +135,11 @@ export default {
       &.live-group-empty {
         border-top: 2px solid grey;
         border-bottom: 2px solid grey;
+        display: flex;
+        flex-wrap: wrap;
+        :first-child {
+          padding-right: 5px;
+        }
       }
     }
   }
@@ -195,6 +187,7 @@ export default {
       .live-date-group {
         .live-date-entry {
           padding: 10px;
+          padding-right: 40px;
         }
       }
     }

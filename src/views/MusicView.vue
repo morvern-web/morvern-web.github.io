@@ -48,9 +48,6 @@ export default {
 
 <style lang="less" scoped>
 .music-container {
-  max-width: 1280px;
-  margin: auto;
-
   .music-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
