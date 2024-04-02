@@ -20,11 +20,11 @@
             <h3 class="album-title">
               {{ album.title }}
             </h3>
-            <h4 class="album-details">
+            <h6 class="album-details">
               <span>{{ $date(album.date).format('DD MMMM YYYY') }}</span>
               <span v-if="album.label"> - {{ album.label }}</span>
               <span v-if="album.catNumber"> - {{ album.catNumber }}</span>
-            </h4>
+            </h6>
           </div>
 
           <div class="album-info">

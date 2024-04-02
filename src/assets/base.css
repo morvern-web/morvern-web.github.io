@@ -32,7 +32,7 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  font-weight: normal;
+/*  font-weight: normal;*/
 }
 
 body {
@@ -62,6 +62,12 @@ body {
 }
 
 h1 {
+  padding: 20px 0px;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h2 {
   padding-left: 5px;
   padding-bottom: 20px;
   font-size: 2rem;
@@ -69,21 +75,25 @@ h1 {
   color: white;
 }
 
-h2 {
+h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-style: italic;
+  color: white;
+}
+
+h4 {
   padding-left: 5px;
   padding-bottom: 5px;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-h3 {
-  font-size: 1.6rem;
-  font-weight: 900;
-  font-style: italic;
-  color: white;
+h5 {
+  padding: 0px 25%;
+  font-size: 1.2rem;
 }
 
-h4 {
+h6 {
   font-size: 1.1rem;
-  color: white;
 }

@@ -4,21 +4,23 @@
 export default {
   data() {
     return {
-      newsData: [],
-      musicData: [],
-      liveData: [],
-      videoData: [],
+      aboutData: [],
       linkData: [],
+      liveData: [],
+      musicData: [],
+      newsData: [],
+      videoData: [],
     };
   },
 
   mounted() {
     [
-      'newsData',
-      'musicData',
-      'liveData',
-      'videoData',
+      'aboutData',
       'linkData',
+      'liveData',
+      'musicData',
+      'newsData',
+      'videoData',
     ].forEach((i) => {
       this.getData(i);
     });
@@ -36,9 +38,11 @@ export default {
           ? import.meta.glob('../content/live/*.json')
           : (type === 'videoData')
             ? import.meta.glob('../content/videos.json')
-            : (type === 'linkData')
-              ? import.meta.glob('../content/links.json')
-              : import.meta.glob('../content/news/*.json');
+            : (type === 'aboutData')
+              ? import.meta.glob('../content/about.json')
+              : (type === 'linkData')
+                ? import.meta.glob('../content/links.json')
+                : import.meta.glob('../content/news/*.json');
 
       for (const path in json) {
         json[path]().then((mod) => {

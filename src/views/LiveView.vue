@@ -4,9 +4,9 @@
       v-for="(dateGroup, groupHeader) in groupedDates"
       class="live-group"
     >
-      <h1 class="live-group-header">
+      <h2 class="live-group-header">
         {{ groupHeader }}
-      </h1>
+      </h2>
 
       <div
         v-if="!dateGroup[0]"
@@ -21,9 +21,9 @@
         class="live-date-group"
       >
         <div v-for="(shows, dateHeader) in group">
-          <h2 class="live-date-header">
+          <h4 class="live-date-header">
             {{ dateHeader }}
-          </h2>
+          </h4>
 
           <div
             v-for="show in shows"

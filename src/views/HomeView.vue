@@ -1,10 +1,10 @@
 <template>
   <main class="home-container">
-    <div class="home-title">
+    <h1 class="home-title">
       {{ news?.title?.toUpperCase() }}
-    </div>
+    </h1>
 
-    <div
+    <h5
       v-html="news?.text"
       class="home-text"
     />
@@ -35,17 +35,6 @@ export default {
 
   .home-date, .home-title, .home-text {
     text-align: center;
-  }
-
-  .home-title {
-    padding: 20px 0px;
-    font-size: 3rem;
-    font-weight: bold;
-  }
-
-  .home-text {
-    padding: 0px 25%;
-    font-size: 1.2rem;
   }
 }
 

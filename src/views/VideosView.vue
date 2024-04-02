@@ -9,9 +9,9 @@
             @click="itemClick(video)"
           />
         </div>
-        <h4 class="video-title">
+        <h6 class="video-title">
           {{ video.title }}
-        </h4>
+        </h6>
       </div>
     </div>
 
@@ -69,6 +69,7 @@ export default {
 
     .video-title {
       text-align: center;
+      color: white;
     }
   }
 }
