@@ -80,10 +80,10 @@
 
       <div class="album-container-mobile">
         <div class="album-title-container">
-          <div class="album-title">
+          <h3 class="album-title">
             {{ album.title }}
-          </div>
-          <div class="album-details">
+          </h3>
+          <h6 class="album-details">
             <span>{{ $date(album.date).format('DD MMMM YYYY') }}</span>
             <span v-if="album.label">
               <span class="album-label-divider"> - </span>
@@ -93,7 +93,7 @@
               <span class="album-cat-number-divider"> - </span>
               {{ album.catNumber }}
             </span>
-          </div>
+          </h6>
         </div>
 
         <div class="album-info-container">
