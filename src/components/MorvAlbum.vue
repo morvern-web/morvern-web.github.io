@@ -239,6 +239,7 @@ export default {
     margin-right: 25px;
     font-size: 1.6rem;
     font-weight: 900;
+    font-style: italic;
     color: white;
   }
   .album-details {
@@ -295,7 +296,7 @@ export default {
 
 
 @media (width <= 800px) {
-  /deep/ .overlay-container {
+  :deep(.overlay-container) {
     height: 100%;
   }
 

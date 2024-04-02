@@ -2,7 +2,7 @@
   <main class="music-container">
     <div class="music-grid">
       <div
-        v-for="album in musicData"
+        v-for="album in albums"
         class="album-entry"
       >
         <img
@@ -33,6 +33,16 @@ import MediaMixin from '@/components/MediaMixin.vue';
 
 export default {
   mixins: [JsonData, MediaMixin],
+
+  computed: {
+    albums() {
+      return this.musicData.filter((i) => !i.hidden);
+    },
+  },
+
+  beforeRouteLeave() {
+    this.selectedItem = null;
+  },
 };
 </script>
 
@@ -69,12 +79,13 @@ export default {
   .music-container {
     .music-grid {
       grid-template-columns: repeat(2, 1fr);
+      grid-gap: 35px;
     }
   }
 }
 
 
-@media (width <= 600px) {
+@media (width <= 500px) {
   .music-container {
     .music-grid {
       grid-template-columns: unset;

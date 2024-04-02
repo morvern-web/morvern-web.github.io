@@ -1,7 +1,7 @@
 <template>
   <main class="video-container">
     <div class="video-grid">
-      <div v-for="video in videoData">
+      <div v-for="video in videos">
         <div class="video-entry">
           <img
             :src="getImgSrc(video.title, 'video')"
@@ -35,6 +35,16 @@ import MediaMixin from '@/components/MediaMixin.vue';
 
 export default {
   mixins: [JsonData, MediaMixin],
+
+  computed: {
+    videos() {
+      return this.videoData.filter((i) => !i.hidden);
+    },
+  },
+
+  beforeRouteLeave() {
+    this.selectedItem = null;
+  },
 };
 </script>
 
@@ -73,12 +83,13 @@ export default {
   .video-container {
     .video-grid {
       grid-template-columns: repeat(2, 1fr);
+      grid-gap: 35px;
     }
   }
 }
 
 
-@media (width <= 600px) {
+@media (width <= 500px) {
   .video-container {
     .video-grid {
       grid-template-columns: unset;

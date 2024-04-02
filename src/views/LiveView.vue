@@ -9,6 +9,13 @@
       </div>
 
       <div
+        v-if="!dateGroup[0]"
+        class="live-date-entry live-group-empty"
+      >
+        We have not announced any upcoming shows at this time. Check back often for updates.
+      </div>
+
+      <div
         v-for="group in dateGroup"
         class="live-date-group"
       >
@@ -27,9 +34,16 @@
             <span class="live-entry-venue">
               {{ show.venue }} - {{ show.location }}
             </span>
-            <span v-if="show.info" class="live-entry-lineup">
-              - {{ show.info }}
-            </span>
+            <span
+              v-if="show.info"
+              class="live-entry-lineup"
+              v-html="` - ${show.info}`"
+            />
+            <div
+              v-if="show.link"
+              class="live-entry-link"
+              @click="handleLinkClick(show.link)"
+            />
           </div>
         </div>
       </div>
@@ -54,6 +68,10 @@ export default {
       const tmp = {};
 
       this.liveData.forEach((i) => {
+        if (i.announced && this.$date(i.announced) > this.$date()) {
+          return;
+        }
+
         const date = this.$date(i.date);
         const group = (date > this.$date()) ? 'Upcoming' : 'Previous';
         const year = date.format('YYYY');
@@ -75,6 +93,12 @@ export default {
         this.groupedDates['Previous'].push({ [i]: tmp['Previous'][i] });
       });
     }, 10);
+  },
+
+  methods: {
+    handleLinkClick(link) {
+      window.open(link, '_blank');
+    },
   },
 };
 </script>
@@ -108,18 +132,60 @@ export default {
         font-size: 1.5rem;
         font-weight: bold;
       }
+    }
 
-      .live-date-entry {
-        background-color: fade(black, 50%);
-        color: white;
-        font-size: 1.1rem;
-        padding: 10px 15px;
-        border-bottom: 1px dotted grey;
-        &:last-child {
-          border-bottom: 2px solid grey;
-        }
+    .live-date-entry {
+      position: relative;
+      background-color: fade(black, 50%);
+      color: white;
+      font-size: 1.1rem;
+      padding: 10px 15px;
+      padding-right: 50px;
+      border-bottom: 1px dotted grey;
+      &:last-child {
+        border-bottom: 2px solid grey;
+      }
+      &.live-group-empty {
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
       }
     }
+  }
+}
+
+.live-entry-link {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  height: 25px;
+  width: 25px;
+  background-color: grey;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+    top: 2px;
+    left: 2px;
+    background-color: black;
+
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-image: url('@/assets/icons/info.svg');
+
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-image: url('@/assets/icons/info.svg');
+  }
+
+  &:hover {
+    background-color: white;
   }
 }
 

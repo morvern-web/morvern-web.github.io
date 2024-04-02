@@ -80,7 +80,8 @@ export default {
 
   computed: {
     routes() {
-      return this.$router.getRoutes();
+      const allRoutes = this.$router.getRoutes();
+      return allRoutes.filter((i) => !i.meta.hidden);
     },
 
     isCurrentRoute() {
@@ -182,7 +183,8 @@ header {
         cursor: pointer;
         margin: auto;
         height: 45px;
-        padding: 10px 20px;
+        min-width: 4.5rem;
+        padding: 10px 5px;
         border-left: 1px solid grey;
         text-align: center;
         color: var(--color-text);
@@ -191,9 +193,11 @@ header {
           border-right: 1px solid grey;
         }
         &:hover {
+          font-weight: bold;
           color: white;
         }
         &.is-selected {
+          font-weight: bold;
           color: white;
         }
         .shine-effect();
@@ -232,9 +236,14 @@ footer {
   .footer-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px 40px;
+    padding: 15px 40px;
     max-width: 1440px;
     margin: auto;
+    :deep(.icon-container) {
+      .icon {
+        margin-top: 0;
+      }
+    }
   }
 }
 
@@ -294,7 +303,7 @@ footer {
         transition-timing-function: ease-out;
 
         .navigation-item {
-          flex: 0 0 15%;
+          flex: 0 0 calc(100% / 6);
           &:first-child {
             border-left: none;
           }
@@ -311,7 +320,9 @@ footer {
   }
 
   #content {
+    background-image: url('@/assets/bgm.jpg');
     .content-container {
+      background: radial-gradient(fade(black, 60%), fade(black, 80%));
       padding: 25px;
     }
   }
@@ -324,7 +335,7 @@ footer {
 }
 
 
-@media (width <= 600px) {
+@media (width <= 500px) {
   header {
     .header-container {
       .navigation-container {
@@ -352,6 +363,7 @@ footer {
   footer {
     .footer-container {
       padding: 5px;
+      padding-top: 10px;
       flex-wrap: wrap;
       div {
         flex: 0 0 100%;

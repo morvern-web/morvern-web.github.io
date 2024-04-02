@@ -3,18 +3,21 @@
 		"date": "2017-09-21",
 		"venue": "KUD Channel Zero",
 		"location": "Ljubljana, Slovenia",
-		"info": "w/ Svemirko"
+		"info": "w/ Svemirko",
+		"link": ""
 	},
 	{
 		"date": "2018-12-27",
 		"venue": "Gala Hala",
 		"location": "Ljubljana, Slovenia",
-		"info": "Domorodni četrtki"
+		"info": "Domorodni četrtki",
+		"link": "https://www.galahala.com/arhiv/domorodni-cetrtki-m-o-r-v-e-r-n/20516/"
 	},
 	{
 		"date": "2019-02-12",
 		"venue": "Klub Gromka",
 		"location": "Ljubljana, Slovenia",
-		"info": "w/ Žblj Mozaik & Rush to Relax"
+		"info": "w/ Žblj Mozaik & Rush to Relax",
+		"link": "https://www.facebook.com/events/2536232916460746/"
 	}
 ]

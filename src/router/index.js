@@ -20,6 +20,12 @@ const router = createRouter({
       component: () => import('../views/LiveView.vue')
     },
     {
+      path: '/photos',
+      name: 'photos',
+      meta: { hidden: true },
+      component: () => import('../views/PhotosView.vue')
+    },
+    {
       path: '/videos',
       name: 'videos',
       component: () => import('../views/VideosView.vue')

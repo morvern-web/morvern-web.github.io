@@ -3,48 +3,56 @@
 		"date": "2020-04-12",
 		"venue": "Klub močvara",
 		"location": "Zagreb, Croatia",
-		"info": "Močvara FB Sessions"
+		"info": "Močvara FB Sessions",
+		"link": "https://www.facebook.com/events/154925495844407/"
 	},
 	{
 		"date": "2020-07-03",
 		"venue": "Pri Rdeči Ostrigi",
 		"location": "Škofja Loka, Slovenia",
-		"info": "w/ Domen Don Holc (Koala Voice) - Poletje v parku"
+		"info": "Poletje v parku - w/ Domen Don Holc (Koala Voice)",
+		"link": "https://www.facebook.com/events/463686041171571/"
 	},
 	{
 		"date": "2020-08-03",
 		"venue": "Gala Hala",
 		"location": "Ljubljana, Slovenia",
-		"info": "Intimno"
+		"info": "Intimno",
+		"link": "https://www.galahala.com/arhiv/intimno-m-o-r-v-e-r-n/24595/"
 	},
 	{
 		"date": "2020-09-23",
 		"venue": "KUD Channel Zero",
 		"location": "Ljubljana, Slovenia",
-		"info": "w/ Buddhist Bubblegum - Terasa Ch0"
+		"info": "Terasa Ch0 - w/ Buddhist Bubblegum",
+		"link": "https://www.facebook.com/events/319610986122977/"
 	},
 	{
 		"date": "2021-07-17",
 		"venue": "MKNŽ",
 		"location": "Ilirska Bistrica, Slovenia",
-		"info": ""
+		"info": "",
+		"link": ""
 	},
 	{
 		"date": "2021-07-28",
 		"venue": "Kino Šiška",
 		"location": "Ljubljana, Slovenia",
-		"info": "Poletje v Šiški"
+		"info": "Poletje v Šiški",
+		"link": "https://www.facebook.com/events/794313347896252/"
 	},
 	{
 		"date": "2021-08-12",
 		"venue": "Klub Gromka",
 		"location": "Ljubljana, Slovenia",
-		"info": "ODPRTO"
+		"info": "ODPRTO",
+		"link": "https://www.facebook.com/events/573697057340572/"
 	},
 	{
 		"date": "2021-12-22",
 		"venue": "Kino Šiška",
 		"location": "Ljubljana, Slovenia",
-		"info": "Žmoht promocija"
+		"info": "Žmoht promocija",
+		"link": "https://www.facebook.com/events/1082548495903452/"
 	}
 ]

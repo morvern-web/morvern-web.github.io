@@ -1,11 +1,11 @@
 <template>
   <main class="home-container">
     <div class="home-title">
-      {{ newsData[0]?.title?.toUpperCase() }}
+      {{ news?.title?.toUpperCase() }}
     </div>
 
     <div
-      v-html="newsData[0]?.text"
+      v-html="news?.text"
       class="home-text"
     />
   </main>
@@ -16,6 +16,12 @@ import JsonData from '@/components/JsonData.vue';
 
 export default {
   mixins: [JsonData],
+
+  computed: {
+    news() {
+      return this.newsData.find((i) => this.$date(i.date) < this.$date());
+    },
+  },
 };
 </script>
 
@@ -34,7 +40,7 @@ export default {
   }
 
   .home-title {
-    padding: 20px 0px 50px;
+    padding: 20px 0px;
     font-size: 3rem;
     font-weight: bold;
   }
