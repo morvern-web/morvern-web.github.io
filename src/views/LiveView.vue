@@ -109,7 +109,7 @@ export default {
   .live-group {
     &:not(:last-child) {
       padding-bottom: 25px;
-      border-bottom: 3px solid white;
+      border-bottom: 2px solid grey;
       margin-bottom: 40px;
     }
 

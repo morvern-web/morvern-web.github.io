@@ -97,3 +97,8 @@ h5 {
 h6 {
   font-size: 1.1rem;
 }
+
+a {
+  color: white;
+  text-underline-offset: 0.15rem;
+}

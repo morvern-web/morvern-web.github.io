@@ -92,7 +92,7 @@ export default {
   .about-divider {
     width: 100%;
     border: 1px solid grey;
-    margin: 50px 0;
+    margin: 30px 0;
   }
 
   .about-intro {
@@ -150,6 +150,13 @@ export default {
     text-decoration: underline;
     text-underline-offset: 0.15rem;
   }
+}
+
+.about-body-container,
+.contact-container,
+.press-container {
+  background-color: fade(black, 50%);
+  padding: 15px;
 }
 
 @media (width <= 500px) {
