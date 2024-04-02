@@ -107,11 +107,6 @@ export default {
     }
   }
 
-  .contact-header,
-  .press-header {
-    padding-bottom: 20px;
-  }
-
   .contact-container {
     display: flex;
     flex-wrap: wrap;
