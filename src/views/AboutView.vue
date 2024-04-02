@@ -52,6 +52,15 @@
         <span class="press-publication">{{ pressText.publication }}</span>
       </div>
     </div>
+
+    <div class="about-divider"/>
+
+    <h5
+      class="epk-link"
+      @click="handleClick(about?.epk)"
+    >
+      Download our EPK
+    </h5>
   </main>
 </template>
 
@@ -133,6 +142,13 @@ export default {
         text-decoration: none;
       }
     }
+  }
+
+  .epk-link {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 0.15rem;
   }
 }
 
