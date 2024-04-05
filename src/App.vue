@@ -321,6 +321,7 @@ footer {
 
   #content {
     background-image: url('@/assets/bgm.jpg');
+    background-position: top;
     .content-container {
       background: radial-gradient(fade(black, 60%), fade(black, 80%));
       padding: 25px;
