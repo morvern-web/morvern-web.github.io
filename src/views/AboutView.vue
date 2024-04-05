@@ -65,10 +65,8 @@
 </template>
 
 <script>
-import JsonData from '@/components/JsonData.vue';
-
 export default {
-  mixins: [JsonData],
+  name: 'About',
 
   computed: {
     about() {

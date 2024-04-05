@@ -7,6 +7,9 @@
 </template>
 
 <script>
+export default {
+  name: 'Photos',
+};
 </script>
 
 <style lang="less" scoped>

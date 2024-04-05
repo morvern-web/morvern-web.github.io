@@ -12,10 +12,14 @@ import MorvIcons from './components/MorvIcons.vue';
 import MorvOverlay from './components/MorvOverlay.vue';
 import MorvVideo from './components/MorvVideo.vue';
 
+import JsonData from '@/components/JsonData.vue';
+
 const app = createApp(App);
 
 app.use(router);
 app.use(VueDayjs);
+
+app.mixin(JsonData);
 
 app
   .component('MorvAlbum', MorvAlbum)

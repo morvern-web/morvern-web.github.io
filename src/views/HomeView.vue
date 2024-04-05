@@ -12,10 +12,8 @@
 </template>
 
 <script>
-import JsonData from '@/components/JsonData.vue';
-
 export default {
-  mixins: [JsonData],
+  name: 'Home',
 
   computed: {
     news() {

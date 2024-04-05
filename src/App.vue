@@ -65,10 +65,9 @@
 
 <script>
 import { RouterLink, RouterView } from 'vue-router';
-import JsonData from '@/components/JsonData.vue';
 
 export default {
-  mixins: [JsonData],
+  name: 'App',
 
   data() {
     return {

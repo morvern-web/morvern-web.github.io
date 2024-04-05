@@ -2,6 +2,8 @@
 
 <script>
 export default {
+  name: 'JsonData',
+
   data() {
     return {
       aboutData: [],

@@ -30,11 +30,12 @@
 </template>
 
 <script>
-import JsonData from '@/components/JsonData.vue';
 import MediaMixin from '@/components/MediaMixin.vue';
 
 export default {
-  mixins: [JsonData, MediaMixin],
+  name: 'Videos',
+
+  mixins: [MediaMixin],
 
   computed: {
     videos() {
