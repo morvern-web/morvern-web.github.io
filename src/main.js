@@ -9,6 +9,7 @@ import router from './router';
 import MorvAlbum from './components/MorvAlbum.vue';
 import MorvAlbumEmbed from './components/MorvAlbumEmbed.vue';
 import MorvIcons from './components/MorvIcons.vue';
+import MorvLive from './components/MorvLive.vue';
 import MorvOverlay from './components/MorvOverlay.vue';
 import MorvVideo from './components/MorvVideo.vue';
 
@@ -25,6 +26,7 @@ app
   .component('MorvAlbum', MorvAlbum)
   .component('MorvAlbumEmbed', MorvAlbumEmbed)
   .component('MorvIcons', MorvIcons)
+  .component('MorvLive', MorvLive)
   .component('MorvOverlay', MorvOverlay)
   .component('MorvVideo', MorvVideo);
 

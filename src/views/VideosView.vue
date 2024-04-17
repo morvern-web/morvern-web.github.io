@@ -76,7 +76,7 @@ export default {
 }
 
 
-@media (width <= 800px) {
+@media (width <= 1024px) {
   .video-container {
     .video-grid {
       grid-template-columns: repeat(2, 1fr);
@@ -86,7 +86,7 @@ export default {
 }
 
 
-@media (width <= 500px) {
+@media (width <= 512px) {
   .video-container {
     .video-grid {
       grid-template-columns: unset;

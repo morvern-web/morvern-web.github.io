@@ -61,6 +61,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 h1 {
   padding: 20px 0px;
   font-size: 3rem;

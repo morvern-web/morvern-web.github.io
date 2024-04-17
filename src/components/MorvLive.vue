@@ -1,0 +1,118 @@
+<template>
+  <div class="live-date-container">
+    <div
+      v-for="show in shows"
+      class="live-date-entry"
+    >
+      <span class="live-entry-date">
+        {{ $date(show.date).format('DD MMM YYYY') }} -
+      </span>
+      <span class="live-entry-venue">
+        {{ show.venue }} - {{ show.location }}
+      </span>
+      <span
+        v-if="show.info"
+        class="live-entry-lineup"
+        v-html="` - ${show.info}`"
+      />
+      <div
+        v-if="show.link"
+        class="live-entry-link"
+        @click="handleLinkClick(show.link)"
+      />
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MorvLive',
+
+  props: {
+    entries: {
+      type: Array,
+      required: true,
+    },
+    reverse: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
+  computed: {
+    shows() {
+      if (!this.reverse) {
+        return this.entries;
+      }
+
+      let tmp = [];
+      const sortArr = Object.keys(this.entries).sort().reverse();
+      sortArr.forEach((i) => {
+        tmp.push(this.entries[i]);
+      });
+      return tmp;
+    },
+  },
+};
+</script>
+
+<style lang="less" scoped>
+.live-date-entry {
+  position: relative;
+  background-color: fade(black, 50%);
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  padding-right: 50px;
+  border-bottom: 1px dotted grey;
+  &:first-child {
+    border-top: 2px solid grey;
+  }
+  &:last-child {
+    border-bottom: 2px solid grey;
+  }
+}
+
+.live-entry-link {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  height: 25px;
+  width: 25px;
+  background-color: grey;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+    top: 2px;
+    left: 2px;
+    background-color: black;
+
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-image: url('@/assets/icons/info.svg');
+
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-image: url('@/assets/icons/info.svg');
+  }
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+@media (width <= 600px) {
+  .live-date-entry {
+    padding: 10px;
+    padding-right: 40px;
+  }
+}
+</style>

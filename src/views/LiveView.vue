@@ -5,7 +5,7 @@
       class="live-group"
     >
       <h2 class="live-group-header">
-        {{ groupHeader }}
+        {{ groupHeader }}:
       </h2>
 
       <div
@@ -25,27 +25,10 @@
             {{ dateHeader }}
           </h4>
 
-          <div
-            v-for="show in shows"
-            class="live-date-entry"
-          >
-            <span class="live-entry-date">
-              {{ $date(show.date).format('DD MMM YYYY') }} -
-            </span>
-            <span class="live-entry-venue">
-              {{ show.venue }} - {{ show.location }}
-            </span>
-            <span
-              v-if="show.info"
-              class="live-entry-lineup"
-              v-html="` - ${show.info}`"
-            />
-            <div
-              v-if="show.link"
-              class="live-entry-link"
-              @click="handleLinkClick(show.link)"
-            />
-          </div>
+          <MorvLive
+            :entries="shows"
+            :reverse="(groupHeader === 'Upcoming')"
+          />
         </div>
       </div>
     </div>
@@ -113,82 +96,22 @@ export default {
 
     .live-date-group {
       margin-bottom: 25px;
-
-      .live-date-header {
-        border-bottom: 2px solid grey;
-      }
-    }
-
-    .live-date-entry {
-      position: relative;
-      background-color: fade(black, 50%);
-      color: white;
-      font-size: 1.1rem;
-      padding: 10px 15px;
-      padding-right: 50px;
-      border-bottom: 1px dotted grey;
-      &:last-child {
-        border-bottom: 2px solid grey;
-      }
-      &.live-group-empty {
-        border-top: 2px solid grey;
-        border-bottom: 2px solid grey;
-        display: flex;
-        flex-wrap: wrap;
-        :first-child {
-          padding-right: 5px;
-        }
-      }
     }
   }
 }
 
-.live-entry-link {
-  position: absolute;
-  top: 12px;
-  right: 10px;
-  height: 25px;
-  width: 25px;
-  background-color: grey;
-  border-radius: 50%;
-  cursor: pointer;
-
-  &:before {
-    display: block;
-    content: '';
-    position: absolute;
-    height: calc(100% - 4px);
-    width: calc(100% - 4px);
-    top: 2px;
-    left: 2px;
-    background-color: black;
-
-    -webkit-mask-position: center;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    -webkit-mask-image: url('@/assets/icons/info.svg');
-
-    mask-position: center;
-    mask-repeat: no-repeat;
-    mask-size: contain;
-    mask-image: url('@/assets/icons/info.svg');
-  }
-
-  &:hover {
-    background-color: white;
-  }
-}
-
-@media (width <= 600px) {
-  .live-container {
-    .live-group {
-      .live-date-group {
-        .live-date-entry {
-          padding: 10px;
-          padding-right: 40px;
-        }
-      }
-    }
+.live-group-empty {
+  position: relative;
+  background-color: fade(black, 50%);
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+  display: flex;
+  flex-wrap: wrap;
+  :first-child {
+    padding-right: 5px;
   }
 }
 </style>

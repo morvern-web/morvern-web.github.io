@@ -1,23 +1,131 @@
 <template>
   <main class="home-container">
-    <h1 class="home-title">
-      {{ news?.title?.toUpperCase() }}
-    </h1>
 
-    <h5
-      v-html="news?.text"
-      class="home-text"
-    />
+    <!-- NEWS -->
+    <div class="home-news-container">
+      <h1 class="home-news-title">
+        {{ news?.title?.toUpperCase() }}
+      </h1>
+
+      <h5
+        v-html="news?.text"
+        class="home-news-text"
+      />
+    </div>
+
+    <!-- LIVE -->
+    <div
+      v-if="live.length"
+      class="home-live-container"
+    >
+      <h4 class="home-live-header">
+        Upcoming live events:
+      </h4>
+      <MorvLive
+        :entries="live"
+        :reverse="true"
+      />
+    </div>
+
+    <div class="home-media-container">
+      <!-- ALBUM -->
+      <div class="home-album-container">
+        <h4 class="home-album-header">
+          Latest music:
+        </h4>
+        <div class="home-album">
+          <h6 class="home-album-title">
+            {{ album?.title }}
+          </h6>
+          <div class="home-album-artwork-container">
+            <img
+              :src="album ? getImgSrc(album?.title, 'music') : null"
+              class="home-album-artwork"
+              @click="itemClick('music')"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO -->
+      <div class="home-video-container">
+        <h4 class="home-video-header">
+          Latest video:
+        </h4>
+        <div class="home-video">
+          <h6 class="home-video-title">
+            {{ video?.title }}
+          </h6>
+          <div class="home-video-artwork-container">
+            <img
+              :src="video ? getImgSrc(video?.title, 'video') : null"
+              class="home-video-artwork"
+              @click="itemClick('videos')"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- PHOTO -->
+      <div
+        v-if="photo"
+        class="home-photo-container"
+      >
+        <h4 class="home-photo-header">
+          Latest photo:
+        </h4>
+        <div class="home-photo">
+          <h6 class="home-photo-title">
+            {{ photo?.title }}
+          </h6>
+          <div class="home-photo-artwork-container">
+            <img
+              :src="photo ? getImgSrc(photo?.title, 'video') : null"
+              class="home-photo-artwork"
+              @click="itemClick('photos')"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
+import MediaMixin from '@/components/MediaMixin.vue';
+
 export default {
   name: 'Home',
+
+  mixins: [MediaMixin],
 
   computed: {
     news() {
       return this.newsData.find((i) => this.$date(i.date) < this.$date());
+    },
+
+    live() {
+      return this.liveData.filter((i) =>
+        this.$date(i.date) > this.$date() // && this.$date(i.announced) < this.$date()
+      );
+    },
+
+    album() {
+      return this.musicData[0];
+    },
+
+    video() {
+      return this.videoData[0];
+    },
+
+    photo() {
+      return null;
+    },
+  },
+
+  methods: {
+    itemClick(type) {
+      this.$emit('routeChange', type);
     },
   },
 };
@@ -26,29 +134,114 @@ export default {
 <style lang="less" scoped>
 .home-container {
   height: 100%;
+}
+
+.home-news-container {
+  min-height: 100%;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
 
-  .home-date, .home-title, .home-text {
+  .home-news-date,
+  .home-news-title,
+  .home-news-text {
     text-align: center;
   }
 }
 
-@media (width <= 600px) {
-  .home-container {
-    height: auto;
-    min-height: 100%;
+.home-live-container,
+.home-media-container {
+  border-top: 2px solid grey;
+  min-height: 50%;
+  padding-top: 75px;
+  padding-bottom: 25px;
+  .home-live-header,
+  .home-album-header,
+  .home-video-header,
+  .home-photo-header {
+    color: white;
+  }
+}
+
+.home-media-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  padding-bottom: 100px;
+  .home-album-container,
+  .home-video-container,
+  .home-photo-container {
+    .home-album,
+    .home-video,
+    .home-photo {
+      width: 100%;
+      background-color: fade(black, 50%);
+      border-radius: 20px;
+      padding: 25px;
+    }
+  }
+}
+
+.home-album {
+  .home-album-title {
+    font-style: italic;
+    padding-right: 10px;
+  }
+}
+
+.home-album,
+.home-video,
+.home-photo {
+  .home-album-title,
+  .home-video-title,
+  .home-photo-title {
+    text-align: center;
+    color: white;
+    padding-bottom: 10px;
+  }
+  .home-album-artwork-container,
+  .home-video-artwork-container,
+  .home-photo-atrwork-container {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    .shine-effect();
+    .home-album-artwork,
+    .home-video-artwork,
+    .home-photo-artwork {
+      display: block;
+      width: 100%;
+      margin: auto;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (width <= 1024px) {
+  .home-media-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 35px;
+  }
+}
+
+@media (width <= 512px) {
+  .home-news-container {
     padding-bottom: 20px;
     line-height: 1.5;
-    .home-title {
+    .home-news-title {
       padding: 15px 0px;
       font-size: 2.5rem;
     }
-    .home-text {
+    .home-news-text {
       padding: 0;
     }
+  }
+  .home-media-container {
+    grid-template-columns: 1fr;
   }
 }
 </style>

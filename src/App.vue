@@ -43,7 +43,10 @@
           mode="out-in"
         >
           <KeepAlive>
-            <component :is="Component" />
+            <component
+              :is="Component"
+              @routeChange="headerClick"
+            />
           </KeepAlive>
         </transition>
       </RouterView>
@@ -71,7 +74,6 @@ export default {
 
   data() {
     return {
-      currentRouteName: '',
       transitionType: 'fade-transition',
       mobileMenuHidden: true,
     };
@@ -85,7 +87,7 @@ export default {
 
     isCurrentRoute() {
       return (route) => {
-        return this.currentRouteName === route.name;
+        return this.$router.currentRoute.value.name === route.name;
       };
     },
   },
@@ -94,12 +96,6 @@ export default {
     const content = document.querySelector('.content-container');
     setTimeout(() => {
       content.classList.remove('fade-in');
-
-      if (this.$router.currentRoute._value.name) {
-        this.currentRouteName = this.$router.currentRoute._value.name;
-      } else {
-        this.currentRouteName = 'home';
-      }
     }, 100);
   },
 
@@ -113,19 +109,24 @@ export default {
         route = this.routes.find((x) => x.name === 'home');
       }
 
+      if (typeof route === 'string') {
+        route = this.routes.find((x) => x.name === route);
+      }
+
       this.mobileMenuHidden = true;
 
-      if (this.currentRouteName === route.name) {
+      if (this.$router.currentRoute.value.name === route.name) {
         return;
       }
 
-      const currentRoute = this.routes.find((x) => x.name === this.currentRouteName);
+      const currentRoute = this.routes.find((x) =>
+        x.name === this.$router.currentRoute.value.name,
+      );
       this.transitionType = 
         (this.routes.indexOf(currentRoute) < this.routes.indexOf(route))
           ? 'slide-left-transition' : 'slide-right-transition';
 
       this.$router.push(route.path);
-      this.currentRouteName = route.name;
 
       setTimeout(() => {
         const contentContainer = document.querySelector('.content-container');
