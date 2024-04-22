@@ -59,6 +59,7 @@ export default {
       width: fit-content;
       height: fit-content;
       margin: auto;
+      margin-top: 0;
       overflow: hidden;
       border-radius: 20px;
       .shine-effect();

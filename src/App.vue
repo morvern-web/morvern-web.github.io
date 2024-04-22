@@ -3,9 +3,9 @@
     <div class="header-container">
       <div
         class="logo-container"
-        @click="headerClick()"
+        @click="changeRoute()"
       >
-        MORVERN
+        morvern
       </div>
 
       <div
@@ -21,13 +21,13 @@
           v-for="route in routes"
           class="navigation-item"
           :class="{ 'is-selected': isCurrentRoute(route) }"
-          @click="headerClick(route)"
+          @click="changeRoute(route)"
         >
           {{ route.name }}
         </div>
         <div
           class="navigation-item"
-          @click="headerClick('merch')"
+          @click="changeRoute('merch')"
         >
           merch
         </div>
@@ -45,7 +45,7 @@
           <KeepAlive>
             <component
               :is="Component"
-              @routeChange="headerClick"
+              @routeChange="changeRoute"
             />
           </KeepAlive>
         </transition>
@@ -100,7 +100,7 @@ export default {
   },
 
   methods: {
-    headerClick(route = null) {
+    changeRoute(route = null) {
       if (route === 'merch') {
         window.open('https://morvern.bandcamp.com/merch', '_blank');
       }

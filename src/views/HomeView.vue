@@ -106,7 +106,7 @@ export default {
 
     live() {
       return this.liveData.filter((i) =>
-        this.$date(i.date) > this.$date() // && this.$date(i.announced) < this.$date()
+        this.$date(i.date) > this.$date() && this.$date(i.announced) < this.$date()
       );
     },
 
@@ -230,6 +230,7 @@ export default {
 
 @media (width <= 512px) {
   .home-news-container {
+    min-height: calc(100% - 20px);
     padding-bottom: 20px;
     line-height: 1.5;
     .home-news-title {
@@ -239,6 +240,11 @@ export default {
     .home-news-text {
       padding: 0;
     }
+  }
+  .home-live-container,
+  .home-media-container {
+    padding-top: 25px;
+    padding-bottom: 35px;
   }
   .home-media-container {
     grid-template-columns: 1fr;
