@@ -92,10 +92,10 @@
 </template>
 
 <script>
-import MediaMixin from '@/components/MediaMixin.vue';
+import MediaMixin from '@/components/MediaMixin.js';
 
 export default {
-  name: 'Home',
+  name: 'HomeView',
 
   mixins: [MediaMixin],
 

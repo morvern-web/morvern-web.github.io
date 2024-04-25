@@ -13,7 +13,7 @@ import MorvLive from './components/MorvLive.vue';
 import MorvOverlay from './components/MorvOverlay.vue';
 import MorvVideo from './components/MorvVideo.vue';
 
-import JsonData from '@/components/JsonData.vue';
+import JsonData from '@/components/JsonData.js';
 
 const app = createApp(App);
 

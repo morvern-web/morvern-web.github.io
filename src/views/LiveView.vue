@@ -2,6 +2,7 @@
   <main class="live-container">
     <div
       v-for="(dateGroup, groupHeader) in groupedDates"
+      :key="groupHeader"
       class="live-group"
     >
       <h2 class="live-group-header">
@@ -17,10 +18,15 @@
       </div>
 
       <div
+        v-else
         v-for="group in dateGroup"
+        :key="Object.keys(group)[0]"
         class="live-date-group"
       >
-        <div v-for="(shows, dateHeader) in group">
+        <div
+          v-for="(shows, dateHeader) in group"
+          :key="dateHeader"
+        >
           <h4 class="live-date-header">
             {{ dateHeader }}
           </h4>
@@ -37,7 +43,7 @@
 
 <script>
 export default {
-  name: 'Live',
+  name: 'LiveView',
 
   data() {
     return {

@@ -1,6 +1,3 @@
-<template />
-
-<script>
 export default {
   name: 'MediaData',
 
@@ -31,4 +28,3 @@ export default {
     },
   },
 };
-</script>

@@ -3,6 +3,7 @@
     <div class="music-grid">
       <div
         v-for="album in albums"
+        :key="album.title"
         class="album-entry"
       >
         <img
@@ -28,10 +29,10 @@
 </template>
 
 <script>
-import MediaMixin from '@/components/MediaMixin.vue';
+import MediaMixin from '@/components/MediaMixin.js';
 
 export default {
-  name: 'Music',
+  name: 'MusicView',
 
   mixins: [MediaMixin],
 

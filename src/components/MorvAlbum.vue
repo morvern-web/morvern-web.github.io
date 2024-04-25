@@ -39,7 +39,10 @@
                 class="album-tracklist-container"
               >
                 <ol class="album-tracklist">
-                  <li v-for="track in album.tracklist">
+                  <li
+                    v-for="track in album.tracklist"
+                    :key="track"
+                  >
                     {{ track }}
                   </li>
                 </ol>
@@ -53,7 +56,10 @@
                   v-if="album.credits.band"
                   class="album-credits-band"
                 >
-                  <li v-for="credit in album.credits.band">
+                  <li
+                    v-for="credit in album.credits.band"
+                    :key="credit"
+                  >
                     <span class="credits-name">{{ credit.split('-')[0] }}</span>
                     <span>- {{ credit.split('-')[1] }}</span>
                   </li>
@@ -62,7 +68,10 @@
                   v-if="album.credits.other"
                   class="album-credits-other"
                 >
-                  <li v-for="credit in album.credits.other">
+                  <li
+                    v-for="credit in album.credits.other"
+                    :key="credit"
+                  >
                     {{ credit }}
                   </li>
                 </ul>
@@ -118,7 +127,10 @@
                   class="album-tracklist-container"
                 >
                   <ol class="album-tracklist">
-                    <li v-for="track in album.tracklist">
+                    <li
+                      v-for="track in album.tracklist"
+                      :key="track"
+                    >
                       {{ track }}
                     </li>
                   </ol>
@@ -132,7 +144,10 @@
                     v-if="album.credits.band"
                     class="album-credits-band"
                   >
-                    <li v-for="credit in album.credits.band">
+                    <li
+                      v-for="credit in album.credits.band"
+                      :key="credit"
+                    >
                       <span class="credits-name">{{ credit.split('-')[0] }}</span>
                       <span>- {{ credit.split('-')[1] }}</span>
                     </li>
@@ -141,7 +156,10 @@
                     v-if="album.credits.other"
                     class="album-credits-other"
                   >
-                    <li v-for="credit in album.credits.other">
+                    <li
+                      v-for="credit in album.credits.other"
+                      :key="credit"
+                    >
                       {{ credit }}
                     </li>
                   </ul>
@@ -172,7 +190,7 @@
 </template>
 
 <script>
-import MediaMixin from '@/components/MediaMixin.vue';
+import MediaMixin from '@/components/MediaMixin.js';
 
 export default {
   name: 'MorvAlbum',

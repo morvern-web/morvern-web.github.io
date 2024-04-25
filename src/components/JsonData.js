@@ -1,6 +1,3 @@
-<template />
-
-<script>
 export default {
   name: 'JsonData',
 
@@ -63,4 +60,3 @@ export default {
     },
   },
 };
-</script>

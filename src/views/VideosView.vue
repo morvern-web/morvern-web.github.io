@@ -1,7 +1,10 @@
 <template>
   <main class="video-container">
     <div class="video-grid">
-      <div v-for="video in videos">
+      <div
+        v-for="video in videos"
+        :key="video.title"
+      >
         <div class="video-entry">
           <img
             :src="getImgSrc(video.title, 'video')"
@@ -9,7 +12,10 @@
             @click="itemClick(video)"
           />
         </div>
-        <h6 class="video-title">
+        <h6
+          class="video-title"
+          @click="itemClick(video)"
+        >
           {{ video.title }}
         </h6>
       </div>
@@ -30,10 +36,10 @@
 </template>
 
 <script>
-import MediaMixin from '@/components/MediaMixin.vue';
+import MediaMixin from '@/components/MediaMixin.js';
 
 export default {
-  name: 'Videos',
+  name: 'VideosView',
 
   mixins: [MediaMixin],
 

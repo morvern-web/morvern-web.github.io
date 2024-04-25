@@ -19,6 +19,7 @@
       >
         <div
           v-for="route in routes"
+          :key="route.name"
           class="navigation-item"
           :class="{ 'is-selected': isCurrentRoute(route) }"
           @click="changeRoute(route)"
@@ -67,8 +68,6 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router';
-
 export default {
   name: 'App',
 

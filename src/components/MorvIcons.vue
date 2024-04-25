@@ -2,6 +2,7 @@
   <div class="icon-container">
     <div
       v-for="(url, key) in formattedIcons"
+      :key="key"
       class="icon"
       :class="[key, size, { 'selected': (selected === key) }]"
       @click="handleClick(url, key)"

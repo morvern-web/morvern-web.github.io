@@ -2,6 +2,7 @@
   <div class="live-date-container">
     <div
       v-for="show in shows"
+      :key="show.date"
       class="live-date-entry"
     >
       <span class="live-entry-date">

@@ -10,6 +10,7 @@
     <div class="about-body-container">
       <p
         v-for="bodyText in about?.body"
+        :key="bodyText"
         class="about-body"
         v-html="bodyText"
       />
@@ -22,6 +23,7 @@
     </h4>
     <div
       v-for="contactText in about?.contact"
+      :key="contactText.title"
       class="contact-container"
     >
       <span v-if="contactText.title">{{ contactText.title }}</span>
@@ -38,6 +40,7 @@
     </h4>
     <div
       v-for="pressText in about?.press"
+      :key="pressText.text"
       class="press-container"
     >
       <q
@@ -66,7 +69,7 @@
 
 <script>
 export default {
-  name: 'About',
+  name: 'AboutView',
 
   computed: {
     about() {
