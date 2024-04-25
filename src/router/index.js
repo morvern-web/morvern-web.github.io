@@ -12,7 +12,6 @@ const router = createRouter({
     {
       path: '/music',
       name: 'music',
-      meta: { focusItem: null },
       component: () => import('../views/MusicView.vue'),
     },
     {

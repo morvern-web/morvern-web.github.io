@@ -60,7 +60,7 @@
         size="small"
       />
       <div class="footer-copyright">
-        © 2024 Morvern
+        © 2024 morvern
       </div>
     </div>
   </footer>
