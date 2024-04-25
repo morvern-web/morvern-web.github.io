@@ -5,7 +5,7 @@
         class="logo-container"
         @click="changeRoute()"
       >
-        morvern
+        MORVERN
       </div>
 
       <div
