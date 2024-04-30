@@ -82,12 +82,6 @@ export default {
       });
     }, 10);
   },
-
-  methods: {
-    handleLinkClick(link) {
-      window.open(link, '_blank');
-    },
-  },
 };
 </script>
 

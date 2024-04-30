@@ -54,6 +54,12 @@ export default {
       return tmp;
     },
   },
+
+  methods: {
+    handleLinkClick(link) {
+      window.open(link, '_blank');
+    },
+  },
 };
 </script>
 
