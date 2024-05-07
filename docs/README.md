@@ -2,7 +2,7 @@
 
 This is a simple, static website with no database, cPanel, etc.
 
-Our version of a database is the **[content folder](https://github.com/morvern-web/test/tree/main/src/content)**.
+Our version of a database is the **[content folder](https://github.com/morvern-web/morvern-web.github.io/tree/main/src/content)**.
 
 
 
