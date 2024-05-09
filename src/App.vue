@@ -98,8 +98,11 @@ export default {
 
   methods: {
     changeRoute(route = null) {
+      this.mobileMenuHidden = true;
+
       if (route === 'merch') {
         window.open('https://morvern.bandcamp.com/merch', '_blank');
+        return;
       }
 
       if (!route) {
@@ -109,8 +112,6 @@ export default {
       if (typeof route === 'string') {
         route = this.routes.find((x) => x.name === route);
       }
-
-      this.mobileMenuHidden = true;
 
       if (this.$router.currentRoute.value.name === route.name) {
         return;

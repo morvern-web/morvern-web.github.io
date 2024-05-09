@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "predeploy" : "npm run build",
-    "deploy": "cd dist && cp index.html 404.html && cd .. && gh-pages -d dist"
+    "deploy": "cp CNAME dist/ && cp index.html dist/404.html && gh-pages -d dist"
   },
   "dependencies": {
     "less": "^4.2.0",
