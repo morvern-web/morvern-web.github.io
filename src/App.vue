@@ -59,7 +59,8 @@
         size="small"
       />
       <div class="footer-copyright">
-        © 2024 morvern
+        <div>© 2024 morvern</div>
+        <div>photo: Izak Kermc</div>
       </div>
     </div>
   </footer>
@@ -245,6 +246,12 @@ footer {
         margin-top: 0;
       }
     }
+    .footer-copyright {
+      text-align: right;
+      line-height: 1.1;
+      margin: auto 0px;
+      white-space: nowrap;
+    }
   }
 }
 
@@ -371,6 +378,9 @@ footer {
         flex: 0 0 100%;
         justify-content: center;
         text-align: center;
+      }
+      .footer-copyright {
+        padding: 5px 0px 10px 0px;
       }
     }
   }
