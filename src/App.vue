@@ -4,9 +4,7 @@
       <div
         class="logo-container"
         @click="changeRoute()"
-      >
-        MORVERN
-      </div>
+      />
 
       <div
         class="header-burger"
@@ -143,7 +141,7 @@ export default {
 <style lang="less" scoped>
 header {
   width: 100%;
-  background: black;
+  background: var(--color-background);
   border-bottom: 2px solid grey;
   font-weight: bold;
   line-height: 1.5;
@@ -160,11 +158,14 @@ header {
       height: 50px;
       flex: 0 0 185px;
       margin: 5px 10px;
-      padding: 0px 10px;
       border-radius: 10px;
       font-size: 2rem;
       font-style: italic;
       font-weight: 900;
+      background-image: url('@/assets/logo.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
       .shine-effect();
     }
 
@@ -230,7 +231,7 @@ header {
 
 
 footer {
-  background: black;
+  background: var(--color-background);
   border-top: 2px solid grey;
   .footer-container {
     display: flex;

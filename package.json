@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://morvern-web.github.io/",
+  "homepage": "https://morvern.si/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -34,7 +34,10 @@
           Latest music:
         </h4>
         <div class="home-album">
-          <h6 class="home-album-title">
+          <h6
+            class="home-album-title"
+            @click="itemClick('music')"
+          >
             {{ album?.title }}
           </h6>
           <div class="home-album-artwork-container">
@@ -53,7 +56,10 @@
           Latest video:
         </h4>
         <div class="home-video">
-          <h6 class="home-video-title">
+          <h6
+            class="home-video-title"
+            @click="itemClick('videos')"
+          >
             {{ video?.title }}
           </h6>
           <div class="home-video-artwork-container">
@@ -75,7 +81,10 @@
           Latest photo:
         </h4>
         <div class="home-photo">
-          <h6 class="home-photo-title">
+          <h6
+            class="home-photo-title"
+            @click="itemClick('photos')"
+          >
             {{ photo?.title }}
           </h6>
           <div class="home-photo-artwork-container">
@@ -179,7 +188,8 @@ export default {
       width: 100%;
       background-color: fade(black, 50%);
       border-radius: 20px;
-      padding: 25px;
+      padding: 20px;
+      padding-top: 12px;
     }
   }
 }
@@ -200,6 +210,7 @@ export default {
     text-align: center;
     color: white;
     padding-bottom: 10px;
+    cursor: pointer;
   }
   .home-album-artwork-container,
   .home-video-artwork-container,

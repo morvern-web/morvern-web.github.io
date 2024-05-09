@@ -77,6 +77,7 @@ export default {
     .video-title {
       text-align: center;
       color: white;
+      cursor: pointer;
     }
   }
 }

@@ -3,7 +3,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  background: black;
+  background: var(--color-background);
 }
 
 #app {
