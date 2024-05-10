@@ -106,6 +106,8 @@ export default {
         return;
       }
 
+      const contentContainer = document.querySelector('.content-container');
+
       if (!route) {
         route = this.routes.find((x) => x.name === 'home');
       }
@@ -115,6 +117,7 @@ export default {
       }
 
       if (this.$router.currentRoute.value.name === route.name) {
+        contentContainer.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         return;
       }
 
@@ -126,11 +129,7 @@ export default {
           ? 'slide-left-transition' : 'slide-right-transition';
 
       this.$router.push(route.path);
-
-      setTimeout(() => {
-        const contentContainer = document.querySelector('.content-container');
-        contentContainer.scrollTo(0, 0);
-      }, 100);
+      setTimeout(() => { contentContainer.scrollTo(0, 0); }, 100);
     },
 
     burgerClick() {
@@ -166,8 +165,10 @@ header {
       font-weight: 900;
       background-image: url('@/assets/logo.svg');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       background-position: center;
+      background-origin: content-box;
+      padding: 10px;
       .shine-effect();
     }
 
@@ -202,7 +203,7 @@ header {
           font-weight: bold;
           color: white;
         }
-        .shine-effect();
+        .shine-effect(@duration: 0.75s);
       }
     }
   }

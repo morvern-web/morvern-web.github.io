@@ -34,12 +34,12 @@
 }
 
 
-.shine-effect() {
+.shine-effect(@duration: 1s) {
   position: relative;
   overflow: hidden;
   &:hover::after {
-    -webkit-animation: shine 0.75s;
-    animation: shine 0.75s;
+    -webkit-animation: shine @duration;
+    animation: shine @duration;
   }
   &::after {
     pointer-events: none;
