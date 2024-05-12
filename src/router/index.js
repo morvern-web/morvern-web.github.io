@@ -1,8 +1,8 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createMemoryHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createMemoryHistory(),
   routes: [
     {
       path: '/',
@@ -34,6 +34,11 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue'),
+    },
+    {
+      path: `/:pathMatch(.*)*`,
+      component: HomeView,
+      meta: { hidden: true },
     },
   ],
 });
