@@ -61,7 +61,7 @@ export default {
     margin-top: 5px;
     margin-left: 5px;
     margin-right: 5px;
-    border: 2px solid grey;
+    border: 2.5px solid grey;
     border-radius: 50%;
     background-color: black;
 
@@ -167,6 +167,29 @@ export default {
       left: 5px;
       -webkit-mask-image: url('@/assets/icons/deezer.svg');
       mask-image: url('@/assets/icons/deezer.svg');
+    }
+  }
+
+  .facebook {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border: none;
+    background-color: grey;
+    &:before {
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: black;
+      -webkit-mask-image: url('@/assets/icons/facebook.svg');
+      mask-image: url('@/assets/icons/facebook.svg');
+    }
+    &:hover, &.selected {
+      background-color: white;
+      &:before {
+        background-color: black;
+      }
     }
   }
 

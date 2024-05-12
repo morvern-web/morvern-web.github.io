@@ -188,12 +188,12 @@ header {
         height: 45px;
         min-width: 4.5rem;
         padding: 10px 5px;
-        border-left: 1px solid grey;
+        border-left: 1.5px solid grey;
         text-align: center;
         color: var(--color-text);
         transition: color 0.5s;
         &:last-child {
-          border-right: 1px solid grey;
+          border-right: 1.5px solid grey;
         }
         &:hover {
           font-weight: bold;
@@ -249,7 +249,7 @@ footer {
     }
     .footer-copyright {
       text-align: right;
-      line-height: 1.1;
+      line-height: 1.2;
       margin: auto 0px;
       white-space: nowrap;
     }
@@ -272,7 +272,7 @@ footer {
         height: 30px;
         width: 30px;
         border-radius: 50%;
-        border: 2px solid grey;
+        border: 2.5px solid grey;
 
         &:before {
           display: block;

@@ -94,6 +94,7 @@ export default {
       top: 15px;
       right: 15px;
       background-color: grey;
+      border: 0.5px solid grey;
       border-radius: 5px;
 
       &:hover {
