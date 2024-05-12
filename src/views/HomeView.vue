@@ -254,6 +254,7 @@ export default {
   }
   .home-live-container,
   .home-media-container {
+    min-height: 175px;
     padding-top: 25px;
     padding-bottom: 35px;
   }
