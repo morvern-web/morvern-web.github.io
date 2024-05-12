@@ -163,9 +163,9 @@ export default {
 .home-live-container,
 .home-media-container {
   border-top: 2px solid grey;
-  min-height: 50%;
+  min-height: 275px;
   padding-top: 75px;
-  padding-bottom: 25px;
+  padding-bottom: 75px;
   .home-live-header,
   .home-album-header,
   .home-video-header,
@@ -178,7 +178,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   .home-album-container,
   .home-video-container,
   .home-photo-container {
