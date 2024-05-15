@@ -21,3 +21,9 @@ html, body {
   max-width: 1280px;
   margin: auto;
 }
+
+html @media(pointer: coarse) {
+  *:hover {
+    all:unset!important;
+  }
+}
