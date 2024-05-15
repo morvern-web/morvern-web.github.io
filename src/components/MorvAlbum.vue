@@ -294,7 +294,7 @@ export default {
     .album-credits-container {
       .album-credits-band {
         padding-left: 1rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         .credits-name {
           font-weight: bold;
           color: white;

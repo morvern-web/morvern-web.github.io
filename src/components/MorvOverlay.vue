@@ -61,7 +61,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 50px;
-  background: fade(black, 80%);
+  background: fade(black, 75%);
   display: flex;
   flex-direction: column;
 
@@ -72,7 +72,8 @@ export default {
     width: 90%;
     max-width: 1000px;
     margin: auto;
-    background: fade(grey, 70%);
+    background: fade(black, 75%);
+    border: 2.5px solid grey;
     border-radius: 20px;
     padding: 25px;
     overflow: hidden;
