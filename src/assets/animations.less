@@ -77,3 +77,26 @@
     left: 125%;
   }
 }
+
+
+.icon-tooltip() {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  white-space: nowrap;
+  top: -20px;
+  background: fade(black, 80%);
+  padding: 2px;
+  padding-top: 1px;
+  font-size: .9em;
+  line-height: 1;
+  color: grey;
+  transition: opacity 0.1s;
+  transition-delay: 0s;
+}
+
+.icon-tooltip-hover() {
+  opacity: 1;
+  transition-delay: 0.5s;
+}

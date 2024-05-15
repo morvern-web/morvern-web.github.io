@@ -11,6 +11,19 @@
         v-html="news?.text"
         class="home-news-text"
       />
+
+      <div
+        v-if="news?.image"
+        class="home-news-image-container"
+      >
+        <img
+          :src="getImgSrc(news.image, news.imgType)"
+          class="home-news-image"
+          @click="news.url
+            ? itemClick(news.url, true)
+            : itemClick(news.imgType)"
+        />
+      </div>
     </div>
 
     <!-- LIVE -->
@@ -133,7 +146,11 @@ export default {
   },
 
   methods: {
-    itemClick(type) {
+    itemClick(type, isUrl = false) {
+      if (isUrl) {
+        window.open(type, '_blank');
+        return;
+      }
       this.$emit('routeChange', type);
     },
   },
@@ -157,6 +174,18 @@ export default {
   .home-news-title,
   .home-news-text {
     text-align: center;
+  }
+
+  .home-news-image-container {
+    width: 100%;
+    max-width: 350px;
+    margin: 35px auto 0;
+    border-radius: 20px;
+    cursor: pointer;
+    .home-news-image {
+      width: 100%;
+    }
+    .shine-effect();
   }
 }
 

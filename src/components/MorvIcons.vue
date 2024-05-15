@@ -6,7 +6,11 @@
       class="icon"
       :class="[key, size, { 'selected': (selected === key) }]"
       @click="handleClick(url, key)"
-    />
+    >
+      <div class="icon-tooltip">
+        {{ tooltipText(key) }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -36,6 +40,13 @@ export default {
       }
       return this.icons;
     },
+
+    tooltipText() {
+      return (string) => {
+        return (string === 'applemusic') ? 'Apple Music'
+          : string.charAt(0).toUpperCase() + string.slice(1);
+      };
+    },
   },
 
   methods: {
@@ -55,6 +66,7 @@ export default {
   flex-wrap: wrap;
 
   .icon {
+    position: relative;
     cursor: pointer;
     height: 40px;
     width: 40px;
@@ -64,6 +76,10 @@ export default {
     border: 2.5px solid grey;
     border-radius: 50%;
     background-color: black;
+
+    .icon-tooltip {
+      .icon-tooltip();
+    }
 
     &:before {
       display: block;
@@ -81,6 +97,12 @@ export default {
       mask-position: center;
       mask-repeat: no-repeat;
       mask-size: contain;
+    }
+
+    &:hover {
+      .icon-tooltip {
+        .icon-tooltip-hover();
+      }
     }
 
     &:hover, &.selected {
@@ -126,6 +148,7 @@ export default {
 
   .bandcamp, .spotify {
     background-color: grey;
+    border: 2px solid grey;
     &:before {
       height: 100%;
       width: 100%;

@@ -272,7 +272,7 @@ footer {
         height: 30px;
         width: 30px;
         border-radius: 50%;
-        border: 2.5px solid grey;
+        border: 2px solid grey;
 
         &:before {
           display: block;
