@@ -8,6 +8,7 @@
 
       <div
         class="header-burger"
+        :class="{ 'mobile-menu-hidden': mobileMenuHidden }"
         @click="burgerClick()"
       />
 
@@ -294,6 +295,12 @@ footer {
           mask-size: contain;
           mask-image: url('@/assets/icons/burgermenu.svg');
         }
+        &:not(.mobile-menu-hidden) {
+          border: 2px solid white;
+          &:before {
+            background-color: white;
+          }
+        }
       }
 
       .navigation-container {
@@ -381,7 +388,7 @@ footer {
         text-align: center;
       }
       .footer-copyright {
-        padding: 5px 0px 10px 0px;
+        padding: 0px 0px 10px 0px;
       }
     }
   }

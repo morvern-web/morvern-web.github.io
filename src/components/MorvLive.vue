@@ -110,16 +110,20 @@ export default {
     mask-size: contain;
     mask-image: url('@/assets/icons/info.svg');
   }
-
-  &:hover {
-    background-color: white;
-  }
 }
 
 @media (width <= 600px) {
   .live-date-entry {
     padding: 10px;
     padding-right: 40px;
+  }
+}
+
+@media (pointer: fine) {
+  .live-entry-link {
+    &:hover {
+      background-color: white;
+    }
   }
 }
 </style>

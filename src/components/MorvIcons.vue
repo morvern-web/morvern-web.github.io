@@ -99,13 +99,7 @@ export default {
       mask-size: contain;
     }
 
-    &:hover {
-      .icon-tooltip {
-        .icon-tooltip-hover();
-      }
-    }
-
-    &:hover, &.selected {
+    &.selected {
       border-color: white;
       &:before {
         background-color: white;
@@ -156,7 +150,7 @@ export default {
       left: 0;
       background-color: black;
     }
-    &:hover, &.selected {
+    &.selected {
       background-color: white;
       &:before {
         background-color: black;
@@ -208,7 +202,7 @@ export default {
       -webkit-mask-image: url('@/assets/icons/facebook.svg');
       mask-image: url('@/assets/icons/facebook.svg');
     }
-    &:hover, &.selected {
+    &.selected {
       background-color: white;
       &:before {
         background-color: black;
@@ -220,6 +214,17 @@ export default {
     &:before {
       -webkit-mask-image: url('@/assets/icons/instagram.svg');
       mask-image: url('@/assets/icons/instagram.svg');
+    }
+  }
+
+  .linkpop {
+    &:before {
+      height: calc(100% - 8px);
+      width: calc(100% - 8px);
+      top: 4px;
+      left: 4px;
+      -webkit-mask-image: url('@/assets/icons/linkpop.svg');
+      mask-image: url('@/assets/icons/linkpop.svg');
     }
   }
 
@@ -254,8 +259,8 @@ export default {
 
 
   .small {
-    margin: 5px;
-    margin-bottom: 0;
+    margin: 3px;
+    margin-bottom: 5px;
     height: 30px;
     width: 30px;
 
@@ -319,6 +324,30 @@ export default {
         width: calc(100% - 8px);
         top: 4px;
         left: 4px;
+      }
+    }
+  }
+}
+
+@media (pointer: fine) {
+  .icon-container {
+    .icon {
+      &:hover {
+        border-color: white;
+        &:before {
+          background-color: white;
+        }
+        .icon-tooltip {
+          .icon-tooltip-hover();
+        }
+      }
+    }
+    .bandcamp, .facebook, .spotify {
+      &:hover {
+        background-color: white;
+        &:before {
+          background-color: black;
+        }
       }
     }
   }
