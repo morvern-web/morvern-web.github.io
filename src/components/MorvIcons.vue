@@ -68,8 +68,8 @@ export default {
   .icon {
     position: relative;
     cursor: pointer;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     margin-top: 5px;
     margin-left: 5px;
     margin-right: 5px;
@@ -85,10 +85,10 @@ export default {
       display: block;
       content: '';
       position: relative;
-      height: calc(100% - 6px);
-      width: calc(100% - 6px);
-      top: 3px;
-      left: 3px;
+      height: calc(100% - 4px);
+      width: calc(100% - 4px);
+      top: 2px;
+      left: 2px;
       background-color: grey;
 
       -webkit-mask-position: center;
@@ -115,10 +115,10 @@ export default {
 
   .cover {
     &:before {
-      height: calc(100% - 12px);
-      width: calc(100% - 12px);
-      top: 6px;
-      left: 6px;
+      height: calc(100% - 10px);
+      width: calc(100% - 10px);
+      top: 5px;
+      left: 5px;
       -webkit-mask-image: url('@/assets/icons/cover.svg');
       mask-image: url('@/assets/icons/cover.svg');
     }
@@ -126,10 +126,10 @@ export default {
 
   .tracklist {
     &:before {
-      height: calc(100% - 16px);
-      width: calc(100% - 16px);
-      top: 8px;
-      left: 8px;
+      height: calc(100% - 12px);
+      width: calc(100% - 12px);
+      top: 6px;
+      left: 6px;
       -webkit-mask-image: url('@/assets/icons/tracklist.svg');
       mask-image: url('@/assets/icons/tracklist.svg');
     }
@@ -137,10 +137,10 @@ export default {
 
   .credits {
     &:before {
-      height: calc(100% - 10px);
-      width: calc(100% - 10px);
-      top: 5px;
-      left: 5px;
+      height: calc(100% - 8px);
+      width: calc(100% - 8px);
+      top: 4px;
+      left: 4px;
       -webkit-mask-image: url('@/assets/icons/credits.svg');
       mask-image: url('@/assets/icons/credits.svg');
     }
@@ -184,10 +184,10 @@ export default {
 
   .deezer {
     &:before {
-      height: calc(100% - 10px);
-      width: calc(100% - 10px);
-      top: 6px;
-      left: 5px;
+      height: calc(100% - 8px);
+      width: calc(100% - 8px);
+      top: 5px;
+      left: 4px;
       -webkit-mask-image: url('@/assets/icons/deezer.svg');
       mask-image: url('@/assets/icons/deezer.svg');
     }
@@ -243,6 +243,10 @@ export default {
 
   .youtube {
     &:before {
+      height: calc(100% - 6px);
+      width: calc(100% - 6px);
+      top: 3px;
+      left: 3px;
       -webkit-mask-image: url('@/assets/icons/youtube.svg');
       mask-image: url('@/assets/icons/youtube.svg');
     }

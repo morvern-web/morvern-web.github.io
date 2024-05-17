@@ -213,7 +213,7 @@ export default {
   computed: {
     albumOptions() {
       return (album) => {
-        const options = ['bandcamp', 'spotify', 'applemusic', 'deezer'];
+        const options = ['bandcamp', 'spotify', 'applemusic', 'deezer', 'youtube'];
         return ['tracklist', 'credits'].concat(
           Object.keys(album).filter((key) => options.includes(key))
             .sort((a, b) => options.indexOf(a) - options.indexOf(b))
@@ -246,7 +246,7 @@ export default {
 .album-artwork-container {
   .album-artwork {
     object-fit: contain;
-    height: calc(100% - 52px);
+    height: calc(100% - 45px);
     border-radius: 20px;
   }
 }
