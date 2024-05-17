@@ -5,34 +5,56 @@ const router = createRouter({
   history: createMemoryHistory(),
   routes: [
     {
-      path: '/',
       name: 'home',
+      path: '/',
       component: HomeView
     },
     {
-      path: '/music',
       name: 'music',
+      path: '/music',
+      props: true,
       component: () => import('../views/MusicView.vue'),
     },
     {
-      path: '/live',
+      name: 'musicitem',
+      path: '/music/:item',
+      props: true,
+      meta: { hidden: true },
+      component: () => import('../views/MusicView.vue'),
+    },
+    {
       name: 'live',
+      path: '/live',
       component: () => import('../views/LiveView.vue'),
     },
     {
-      path: '/photos',
       name: 'photos',
+      path: '/photos',
       meta: { hidden: true },
       component: () => import('../views/PhotosView.vue'),
     },
     {
-      path: '/videos',
+      name: 'photoitem',
+      path: '/photos/:item',
+      props: true,
+      meta: { hidden: true },
+      component: () => import('../views/PhotosView.vue'),
+    },
+    {
       name: 'videos',
+      path: '/videos',
       component: () => import('../views/VideosView.vue'),
     },
     {
-      path: '/about',
+      name: 'videoitem',
+      path: '/videos/:item',
+      props: true,
+      meta: { hidden: true },
+      component: () => import('../views/VideosView.vue'),
+    },
+    {
       name: 'about',
+      path: '/about',
       component: () => import('../views/AboutView.vue'),
     },
     {

@@ -42,12 +42,10 @@
           :name="transitionType"
           mode="out-in"
         >
-          <KeepAlive>
-            <component
-              :is="Component"
-              @routeChange="changeRoute"
-            />
-          </KeepAlive>
+          <component
+            :is="Component"
+            @routeChange="changeRoute"
+          />
         </transition>
       </RouterView>
     </div>
@@ -110,11 +108,18 @@ export default {
       const contentContainer = document.querySelector('.content-container');
 
       if (!route) {
-        route = this.routes.find((x) => x.name === 'home');
+        route = this.$router.getRoutes().find((x) => x.name === 'home');
       }
 
       if (typeof route === 'string') {
-        route = this.routes.find((x) => x.name === route);
+        route = this.$router.getRoutes().find((x) => x.name === route);
+      }
+
+      let item = null;
+
+      if (route.item) {
+        item = route.item;
+        route = this.$router.getRoutes().find((x) => x.name === route.name);
       }
 
       if (this.$router.currentRoute.value.name === route.name) {
@@ -122,14 +127,14 @@ export default {
         return;
       }
 
-      const currentRoute = this.routes.find((x) =>
+      const currentRoute = this.$router.getRoutes().find((x) =>
         x.name === this.$router.currentRoute.value.name,
       );
       this.transitionType = 
         (this.routes.indexOf(currentRoute) < this.routes.indexOf(route))
           ? 'slide-left-transition' : 'slide-right-transition';
 
-      this.$router.push(route.path);
+      this.$router.push({ name: route.name, params: { item } });
       setTimeout(() => { contentContainer.scrollTo(0, 0); }, 100);
     },
 

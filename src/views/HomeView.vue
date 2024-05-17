@@ -21,7 +21,7 @@
           class="home-news-image"
           @click="news.url
             ? itemClick(news.url, true)
-            : itemClick(news.imgType)"
+            : itemClick({ name: `${news.imgType}item`, item: news.imgItem })"
         />
       </div>
     </div>
@@ -49,7 +49,7 @@
         <div class="home-album">
           <h6
             class="home-album-title"
-            @click="itemClick('music')"
+            @click="itemClick({ name: 'musicitem', item: album.title })"
           >
             {{ album?.title }}
           </h6>
@@ -57,7 +57,7 @@
             <img
               :src="album ? getImgSrc(album?.title, 'music') : null"
               class="home-album-artwork"
-              @click="itemClick('music')"
+              @click="itemClick({ name: 'musicitem', item: album.title })"
             />
           </div>
         </div>
@@ -71,7 +71,7 @@
         <div class="home-video">
           <h6
             class="home-video-title"
-            @click="itemClick('videos')"
+              @click="itemClick({ name: 'videoitem', item: video.title })"
           >
             {{ video?.title }}
           </h6>
@@ -79,7 +79,7 @@
             <img
               :src="video ? getImgSrc(video?.title, 'video') : null"
               class="home-video-artwork"
-              @click="itemClick('videos')"
+              @click="itemClick({ name: 'videoitem', item: video.title })"
             />
           </div>
         </div>
@@ -96,15 +96,15 @@
         <div class="home-photo">
           <h6
             class="home-photo-title"
-            @click="itemClick('photos')"
+            @click="itemClick({ name: 'photoitem', item: photo.title })"
           >
             {{ photo?.title }}
           </h6>
           <div class="home-photo-artwork-container">
             <img
-              :src="photo ? getImgSrc(photo?.title, 'video') : null"
+              :src="photo ? getImgSrc(photo?.title, 'photo') : null"
               class="home-photo-artwork"
-              @click="itemClick('photos')"
+              @click="itemClick({ name: 'photoitem', item: photo.title })"
             />
           </div>
         </div>
@@ -146,12 +146,12 @@ export default {
   },
 
   methods: {
-    itemClick(type, isUrl = false) {
+    itemClick(route, isUrl = false) {
       if (isUrl) {
-        window.open(type, '_blank');
+        window.open(route, '_blank');
         return;
       }
-      this.$emit('routeChange', type);
+      this.$emit('routeChange', route);
     },
   },
 };

@@ -82,7 +82,7 @@ export default {
 
 .live-entry-link {
   position: absolute;
-  top: 12px;
+  top: 10px;
   right: 10px;
   height: 25px;
   width: 25px;

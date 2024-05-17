@@ -43,6 +43,14 @@ export default {
 
   mixins: [MediaMixin],
 
+  props: {
+    item: {
+      type: String,
+      default: null,
+      required: false,
+    },
+  },
+
   computed: {
     videos() {
       return this.videoData.filter((i) => !i.hidden);
@@ -51,6 +59,15 @@ export default {
 
   beforeRouteLeave() {
     this.selectedItem = null;
+  },
+
+  mounted() {
+    if (this.item) {
+      setTimeout(() => {
+        const video = this.videos.find((i) => i.title === this.item);
+        this.itemClick(video);
+      }, 400);
+    }
   },
 };
 </script>

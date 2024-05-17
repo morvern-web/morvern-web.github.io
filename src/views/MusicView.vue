@@ -36,6 +36,14 @@ export default {
 
   mixins: [MediaMixin],
 
+  props: {
+    item: {
+      type: String,
+      default: null,
+      required: false,
+    },
+  },
+
   computed: {
     albums() {
       return this.musicData.filter((i) => !i.hidden);
@@ -44,6 +52,15 @@ export default {
 
   beforeRouteLeave() {
     this.selectedItem = null;
+  },
+
+  mounted() {
+    if (this.item) {
+      setTimeout(() => {
+        const album = this.albums.find((i) => i.title === this.item);
+        this.itemClick(album);
+      }, 400);
+    }
   },
 };
 </script>
