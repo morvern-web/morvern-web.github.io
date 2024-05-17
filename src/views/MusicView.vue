@@ -63,6 +63,7 @@ export default {
       margin-top: 0;
       overflow: hidden;
       border-radius: 20px;
+      border: 1px solid grey;
       .shine-effect();
 
       .album-artwork {

@@ -249,6 +249,7 @@ export default {
     margin: auto;
     border-radius: 20px;
     overflow: hidden;
+    border: 1px solid grey;
     .shine-effect();
     .home-album-artwork,
     .home-video-artwork,

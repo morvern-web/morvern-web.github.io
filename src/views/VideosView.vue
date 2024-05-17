@@ -66,6 +66,7 @@ export default {
       cursor: pointer;
       overflow: hidden;
       border-radius: 20px;
+      border: 1px solid grey;
       .shine-effect();
 
       .video-artwork {

@@ -248,6 +248,7 @@ export default {
     object-fit: contain;
     height: calc(100% - 45px);
     border-radius: 20px;
+    border: 1px solid grey;
   }
 }
 
