@@ -34,7 +34,7 @@ const router = createRouter({
       component: () => import('../views/PhotosView.vue'),
     },
     {
-      name: 'photoitem',
+      name: 'photositem',
       path: '/photos/:item',
       props: true,
       meta: { hidden: true },
@@ -46,7 +46,7 @@ const router = createRouter({
       component: () => import('../views/VideosView.vue'),
     },
     {
-      name: 'videoitem',
+      name: 'videositem',
       path: '/videos/:item',
       props: true,
       meta: { hidden: true },

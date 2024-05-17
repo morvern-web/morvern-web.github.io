@@ -71,7 +71,7 @@
         <div class="home-video">
           <h6
             class="home-video-title"
-              @click="itemClick({ name: 'videoitem', item: video.title })"
+              @click="itemClick({ name: 'videositem', item: video.title })"
           >
             {{ video?.title }}
           </h6>
@@ -79,7 +79,7 @@
             <img
               :src="video ? getImgSrc(video?.title, 'video') : null"
               class="home-video-artwork"
-              @click="itemClick({ name: 'videoitem', item: video.title })"
+              @click="itemClick({ name: 'videositem', item: video.title })"
             />
           </div>
         </div>
@@ -96,7 +96,7 @@
         <div class="home-photo">
           <h6
             class="home-photo-title"
-            @click="itemClick({ name: 'photoitem', item: photo.title })"
+            @click="itemClick({ name: 'photositem', item: photo.title })"
           >
             {{ photo?.title }}
           </h6>
@@ -104,7 +104,7 @@
             <img
               :src="photo ? getImgSrc(photo?.title, 'photo') : null"
               class="home-photo-artwork"
-              @click="itemClick({ name: 'photoitem', item: photo.title })"
+              @click="itemClick({ name: 'photositem', item: photo.title })"
             />
           </div>
         </div>

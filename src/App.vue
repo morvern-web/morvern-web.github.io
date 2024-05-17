@@ -84,7 +84,11 @@ export default {
 
     isCurrentRoute() {
       return (route) => {
-        return this.$router.currentRoute.value.name === route.name;
+        let currentName = this.$router.currentRoute.value.name;
+        if (currentName.includes('item')) {
+          currentName = currentName.split('item')[0];
+        }
+        return currentName === route.name;
       };
     },
   },
