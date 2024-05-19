@@ -6,7 +6,7 @@
       class="live-date-entry"
     >
       <span class="live-entry-date">
-        {{ $date(show.date).format('DD MMM YYYY') }} -
+        {{ $date(show.date).format('DD MMM') }} -
       </span>
       <span class="live-entry-venue">
         {{ show.venue }} - {{ show.location }}
