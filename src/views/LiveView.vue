@@ -61,7 +61,7 @@ export default {
         }
 
         const date = this.$date(i.date);
-        const group = (date > this.$date()) ? 'Upcoming' : 'Previous';
+        const group = (date.add(1, 'day') > this.$date()) ? 'Upcoming' : 'Previous';
         const year = date.format('YYYY');
 
         if (!tmp[group]) {

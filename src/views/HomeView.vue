@@ -128,7 +128,7 @@ export default {
 
     live() {
       return this.liveData.filter((i) =>
-        this.$date(i.date) > this.$date() && this.$date(i.announced) < this.$date()
+        this.$date(i.date).add(1, 'days') > this.$date() && this.$date(i.announced) < this.$date()
       );
     },
 
