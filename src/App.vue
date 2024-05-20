@@ -60,6 +60,7 @@
       <div class="footer-copyright">
         <div>© 2024 morvern</div>
         <div>photo: Izak Kermc</div>
+        <!-- <div>photo: <a href="https://www.instagram.com/benjaminkreze.photography?igsh=c284b3MzZjRka21v" target="_blank" rel="nofollow">Benjamin Kreze</a></div> -->
       </div>
     </div>
   </footer>
@@ -262,6 +263,9 @@ footer {
       line-height: 1.2;
       margin: auto 0px;
       white-space: nowrap;
+      a {
+        color: var(--color-text);
+      }
     }
   }
 }

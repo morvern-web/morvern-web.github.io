@@ -47,12 +47,12 @@
         v-html="pressText.text"
         class="press-body"
       />
-      <div
-        class="press-credit"
-        @click="handleClick(pressText.link)"
-      >
+      <div class="press-credit">
         <span class="press-author">{{ pressText.author }}, </span>
-        <span class="press-publication">{{ pressText.publication }}</span>
+        <span
+          class="press-publication"
+          v-html="pressText.publication"
+        />
       </div>
     </div>
 
@@ -129,10 +129,7 @@ export default {
     .press-credit {
       float: right;
       text-align: right;
-      cursor: pointer;
       font-weight: bold;
-      text-decoration: underline;
-      text-underline-offset: 0.15rem;
       &:before {
         content: " - ";
         text-decoration: none;
