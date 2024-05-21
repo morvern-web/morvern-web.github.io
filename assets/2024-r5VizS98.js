@@ -1,1 +1,0 @@
-const e=[{date:"2024-03-13",title:"Coming soon...",text:"We will have some exciting news to announce soon.<br /><br />Watch this space."},{date:"2024-05-22",title:"New music from morvern!",text:"<i>Happy Hour Bungalow Drip</i>, a new E.P. containing 5 brand new tracks will be released on 21 June 2024 to Bandcamp and streaming services."}];export{e as default};
