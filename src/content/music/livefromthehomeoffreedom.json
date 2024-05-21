@@ -1,23 +1,23 @@
 {
-	"title": "Live From The Home of Freedom",
-	"date": "2024-02-02",
-	"bandcamp": "730705994",
-	"tracklist": [
-		"Brain Dead",
-		"Deny, Attack & Reverse Victim & Offender",
-		"Goodbye Hell or How I Learned to Love the Apocalypse"
-	],
-	"credits": {
-		"band": [
-			"Jan Cizej - vocals, guitar",
-			"Nejc Čulk - synth, vocals",
-			"Vasja Onič - drums, vocals",
-			"Luka Ivezić - guitar",
-			"Miha Konrad - bass"
-		],
-		"other": [
-			"Erik Kerpan - audio recording, mix & master",
-			"recorded in Dom Svobode, Trbovlje on 29 October 2023"
-		]
-	}
+  "title": "Live From The Home of Freedom",
+  "date": "2024-02-02",
+  "bandcamp": "730705994",
+  "tracklist": [
+    "Brain Dead",
+    "Deny, Attack & Reverse Victim & Offender",
+    "Goodbye Hell or How I Learned to Love the Apocalypse"
+  ],
+  "credits": {
+    "band": [
+      "Jan Cizej - vocals, guitar",
+      "Nejc Čulk - synth, vocals",
+      "Vasja Onič - drums, vocals",
+      "Luka Ivezić - guitar",
+      "Miha Konrad - bass"
+    ],
+    "other": [
+      "Erik Kerpan - audio recording, mix & master",
+      "recorded in Dom Svobode, Trbovlje on 29 October 2023"
+    ]
+  }
 }

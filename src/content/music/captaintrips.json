@@ -1,38 +1,38 @@
 {
-	"title": "CAPTAIN TRIPS",
-	"date": "2021-12-17",
-	"label": "ŠOP Records",
-	"catNumber": "SOP144",
-	"bandcamp": "1679519905",
-	"spotify": "296zj2JKDeoLjgTMqjSrhT",
-	"applemusic": "captain-trips/1597295544",
-	"deezer": "275664052",
-	"tracklist": [
-		"The Stand",
-		"Captain Trips",
-		"Rainbow",
-		"Cool Cat",
-		"Bad Blood",
-		"Old Fashioned Guy ft. Rush to Relax & People I'm Not",
-		"What's the Spell?",
-		"Condolences",
-		"Patterns",
-		"Night Surf",
-		"In The Dusk of a Late Summer Evening",
-		"Revolution 69"
-	],
-	"credits": {
-		"band": [
-			"Jan Cizej - vocals, guitar, bass, synth, electronics, percussion, field recording & effects",
-			"Nejc Čulk - drums, synth, back vocals (6, 10, 11)",
-			"Damjan Manevski - guitar (1, 6), back vocals (6, 10)",
-			"Erik Kerpan - back vocals (5, 10)",
-			"Vasja Onič - back vocals (10)"
-		],
-		"other": [
-			"Tit Podobnik - director <3",
-			"recorded & mixed in AsKeySnjt STUDIO by Jan",
-			"cover & alternative art made by Luka Ivezić (Ivo)"
-		]
-	}
+  "title": "CAPTAIN TRIPS",
+  "date": "2021-12-17",
+  "label": "ŠOP Records",
+  "catNumber": "SOP144",
+  "bandcamp": "1679519905",
+  "spotify": "296zj2JKDeoLjgTMqjSrhT",
+  "applemusic": "captain-trips/1597295544",
+  "deezer": "275664052",
+  "tracklist": [
+    "The Stand",
+    "Captain Trips",
+    "Rainbow",
+    "Cool Cat",
+    "Bad Blood",
+    "Old Fashioned Guy ft. Rush to Relax & People I'm Not",
+    "What's the Spell?",
+    "Condolences",
+    "Patterns",
+    "Night Surf",
+    "In The Dusk of a Late Summer Evening",
+    "Revolution 69"
+  ],
+  "credits": {
+    "band": [
+      "Jan Cizej - vocals, guitar, bass, synth, electronics, percussion, field recording & effects",
+      "Nejc Čulk - drums, synth, back vocals (6, 10, 11)",
+      "Damjan Manevski - guitar (1, 6), back vocals (6, 10)",
+      "Erik Kerpan - back vocals (5, 10)",
+      "Vasja Onič - back vocals (10)"
+    ],
+    "other": [
+      "Tit Podobnik - director <3",
+      "recorded & mixed in AsKeySnjt STUDIO by Jan",
+      "cover & alternative art made by Luka Ivezić (Ivo)"
+    ]
+  }
 }

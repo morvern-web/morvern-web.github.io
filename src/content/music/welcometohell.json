@@ -1,38 +1,38 @@
 {
-	"title": "Welcome to Hell",
-	"date": "2023-09-07",
-	"label": "ŠOP Records",
-	"catNumber": "SOP223",
-	"bandcamp": "1969192462",
-	"spotify": "1KSiRFMJoworNwUMqM1hrI",
-	"applemusic": "welcome-to-hell/1704997573",
-	"deezer": "482148145",
-	"tracklist": [
-		"Welcome to Hell",
-		"Deny, Attack & Reverse Victim & Offender",
-		"Makes Me Sick",
-		"Weird Dreams",
-		"Hey Mr. Man",
-		"Fist is My Wand",
-		"Brain Dead",
-		"Rogue Mugger",
-		"Broken Back Johnny",
-		"Goodbye Hell or How I Learned to Love the Apocalypse"
-	],
-	"credits": {
-		"band": [
-			"Jan Cizej - vocals, guitar, bass, drums, synth, percussion, effects",
-			"Nejc Čulk - synth, effects, back vocals",
-			"Vasja Onič - drums, percussion, back vocals",
-			"Luka Ivezić - guitar, percussion, back vocals",
-			"Miha Konrad - bass, back vocals"
-		],
-		"other": [
-			"Erik Kerpan - recording",
-			"Jan Cizej - recording, mixing, mastering",
-			"Miha Konrad - mastering",
-			"Maja Poljanc - album cover art, merch design",
-			"Tit Podobnik - director"		
-		]
-	}
+  "title": "Welcome to Hell",
+  "date": "2023-09-07",
+  "label": "ŠOP Records",
+  "catNumber": "SOP223",
+  "bandcamp": "1969192462",
+  "spotify": "1KSiRFMJoworNwUMqM1hrI",
+  "applemusic": "welcome-to-hell/1704997573",
+  "deezer": "482148145",
+  "tracklist": [
+    "Welcome to Hell",
+    "Deny, Attack & Reverse Victim & Offender",
+    "Makes Me Sick",
+    "Weird Dreams",
+    "Hey Mr. Man",
+    "Fist is My Wand",
+    "Brain Dead",
+    "Rogue Mugger",
+    "Broken Back Johnny",
+    "Goodbye Hell or How I Learned to Love the Apocalypse"
+  ],
+  "credits": {
+    "band": [
+      "Jan Cizej - vocals, guitar, bass, drums, synth, percussion, effects",
+      "Nejc Čulk - synth, effects, back vocals",
+      "Vasja Onič - drums, percussion, back vocals",
+      "Luka Ivezić - guitar, percussion, back vocals",
+      "Miha Konrad - bass, back vocals"
+    ],
+    "other": [
+      "Erik Kerpan - recording",
+      "Jan Cizej - recording, mixing, mastering",
+      "Miha Konrad - mastering",
+      "Maja Poljanc - album cover art, merch design",
+      "Tit Podobnik - director"   
+    ]
+  }
 }
