@@ -58,11 +58,8 @@
 
     <div class="about-divider"/>
 
-    <h5
-      class="epk-link"
-      @click="handleClick(about?.epk)"
-    >
-      Download our EPK
+    <h5 class="epk-link">
+      <a :href="about?.epk" target="_blank" rel="nofollow">Download our EPK</a>
     </h5>
   </main>
 </template>
@@ -138,10 +135,7 @@ export default {
   }
 
   .epk-link {
-    cursor: pointer;
     text-align: center;
-    text-decoration: underline;
-    text-underline-offset: 0.15rem;
   }
 }
 
