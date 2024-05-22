@@ -59,8 +59,8 @@
       />
       <div class="footer-copyright">
         <div>© 2024 morvern</div>
-        <div>photo: Izak Kermc</div>
-        <!-- <div>photo: <a href="https://www.instagram.com/benjaminkreze.photography?igsh=c284b3MzZjRka21v" target="_blank" rel="external">Benjamin Kreze</a></div> -->
+        <div class="desktop">photo: <a href="https://www.instagram.com/benjaminkreze.photography" target="_blank" rel="external">Benjamin Kreze</a></div>
+        <div class="mobile">photo: <a href="https://www.instagram.com/izakkermc/" target="_blank" rel="external">Izak Kermc</a></div>
       </div>
     </div>
   </footer>
@@ -233,7 +233,7 @@ header {
   overflow: hidden;
   background-image: url('@/assets/bg.jpg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
   background-size: cover;
 
   .content-container {
@@ -241,7 +241,7 @@ header {
     width: 100%;
     height: 100%;
     padding: 50px;
-    background: radial-gradient(fade(black, 70%), fade(black, 90%));
+    background: linear-gradient(to right, fade(black, 70%) 5%, fade(black, 60%) 50%, fade(black, 85%));
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
     &.fade-in {
@@ -272,6 +272,12 @@ footer {
       white-space: nowrap;
       a {
         color: var(--color-text);
+      }
+      .desktop {
+        display: block;
+      }
+      .mobile {
+        display: none;
       }
     }
   }
@@ -359,14 +365,25 @@ footer {
     background-image: url('@/assets/bgm.jpg');
     background-position: top;
     .content-container {
-      background: radial-gradient(fade(black, 60%), fade(black, 80%));
+      background: radial-gradient(fade(black, 50%), fade(black, 75%));
       padding: 25px;
+      main {
+        overflow: scroll;
+      }
     }
   }
 
   footer {
     .footer-container {
       padding: 15px 25px;
+      .footer-copyright {
+        .desktop {
+          display: none;
+        }
+        .mobile {
+          display: block;
+        }
+      }
     }
   }
 }
@@ -383,16 +400,6 @@ footer {
             border: none;
           }
         }
-      }
-    }
-  }
-
-  #content {
-    background-image: url('@/assets/bgm.jpg');
-    .content-container {
-      background: radial-gradient(fade(black, 60%), fade(black, 80%));
-      main {
-        overflow: scroll;
       }
     }
   }

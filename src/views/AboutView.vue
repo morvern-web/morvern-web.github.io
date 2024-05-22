@@ -144,7 +144,7 @@ export default {
 .press-container {
   background-color: fade(black, 50%);
   padding: 15px;
-  border-radius: 20px;
+  // border-radius: 20px;
 }
 
 @media (width <= 500px) {

@@ -88,7 +88,7 @@ export default {
     .news-item {
       background-color: fade(black, 50%);
       padding: 25px 15px;
-      border-radius: 20px;
+      // border-radius: 20px;
 
       .news-item-date,
       .news-item-title,
