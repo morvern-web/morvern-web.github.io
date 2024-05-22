@@ -132,11 +132,18 @@ export default {
         return;
       }
 
-      const currentRoute = this.$router.getRoutes().find((x) =>
+      const routes = this.$router.options.routes;
+
+      const currentRoute = routes.find((x) =>
         x.name === this.$router.currentRoute.value.name,
       );
+
+      const newRoute = routes.find((x) =>
+        x.name === route.name,
+      );
+
       this.transitionType = 
-        (this.routes.indexOf(currentRoute) < this.routes.indexOf(route))
+        (routes.indexOf(currentRoute) < routes.indexOf(newRoute))
           ? 'slide-left-transition' : 'slide-right-transition';
 
       this.$router.push({ name: route.name, params: { item } });

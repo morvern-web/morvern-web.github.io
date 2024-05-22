@@ -24,6 +24,13 @@
             : itemClick({ name: `${news.imgType}item`, item: news.imgItem })"
         />
       </div>
+
+      <div
+        class="home-news-archive"
+        @click="itemClick('news')"
+      >
+        See more >>
+      </div>
     </div>
 
     <!-- LIVE -->
@@ -133,11 +140,11 @@ export default {
     },
 
     album() {
-      return this.musicData[0];
+      return this.musicData.filter((i) => !i.hidden)[0];
     },
 
     video() {
-      return this.videoData[0];
+      return this.videoData.filter((i) => !i.hidden)[0];
     },
 
     photo() {
@@ -168,12 +175,22 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
 
   .home-news-date,
   .home-news-title,
   .home-news-text {
+    color: white;
     text-align: center;
+  }
+
+  .home-news-archive {
+    display: none;
+    cursor: pointer;
+    padding-top: 1.5rem;
+    text-align: center;
+    &:hover {
+      color: white;
+    }
   }
 
   .home-news-image-container {
@@ -184,6 +201,7 @@ export default {
     cursor: pointer;
     .home-news-image {
       width: 100%;
+      border-radius: 20px;
     }
     .shine-effect();
   }

@@ -10,6 +10,12 @@ const router = createRouter({
       component: HomeView
     },
     {
+      name: 'news',
+      path: '/news',
+      meta: { hidden: true },
+      component: () => import('../views/NewsView.vue'),
+    },
+    {
       name: 'music',
       path: '/music',
       props: true,
