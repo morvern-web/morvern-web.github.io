@@ -16,11 +16,7 @@
         class="live-entry-lineup"
         v-html="` - ${show.info}`"
       />
-      <div
-        v-if="show.link"
-        class="live-entry-link"
-        @click="handleLinkClick(show.link)"
-      />
+      <a v-if="show.link" :href="show.link" target="_blank" rel="external" class="live-entry-link" />
     </div>
   </div>
 </template>
