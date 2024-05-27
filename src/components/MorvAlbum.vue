@@ -264,7 +264,7 @@ export default {
 .album-artwork-container {
   .album-artwork {
     object-fit: contain;
-    height: calc(100% - 45px);
+    height: calc(100% - 47px);
     border-radius: 10px;
     border: 1px solid grey;
   }

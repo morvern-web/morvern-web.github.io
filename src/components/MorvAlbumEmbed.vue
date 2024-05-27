@@ -8,7 +8,7 @@
         <iframe
           v-if="selectedOption === 'bandcamp'"
           class="bandcamp-iframe"
-          :src="`https://bandcamp.com/EmbeddedPlayer/album=${album.bandcamp}/size=large/bgcol=333/linkcol=fff/tracklist=true/artwork=small/transparent=true/`"
+          :src="`https://bandcamp.com/EmbeddedPlayer/${album.bandcamp}/size=large/bgcol=333/linkcol=fff/tracklist=true/artwork=small/transparent=true/`"
           seamless
         ></iframe>
 
