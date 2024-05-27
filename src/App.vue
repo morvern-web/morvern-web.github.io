@@ -266,8 +266,9 @@ footer {
       }
     }
     .footer-copyright {
+      padding-bottom: 5px;
       text-align: right;
-      line-height: 1.2;
+      line-height: 1.1;
       margin: auto 0px;
       white-space: nowrap;
       a {
