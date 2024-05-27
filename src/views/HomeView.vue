@@ -49,7 +49,7 @@
       class="home-live-container"
     >
       <h4 class="home-live-header">
-        Upcoming live events:
+        Upcoming live events
       </h4>
       <MorvLive
         :entries="live"
@@ -61,7 +61,7 @@
       <!-- ALBUM -->
       <div class="home-album-container">
         <h4 class="home-album-header">
-          Latest music:
+          Latest music
         </h4>
         <div class="home-album">
           <h6
@@ -84,7 +84,7 @@
       <!-- VIDEO -->
       <div class="home-video-container">
         <h4 class="home-video-header">
-          Latest video:
+          Latest video
         </h4>
         <div class="home-video">
           <h6
