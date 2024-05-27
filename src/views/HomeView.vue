@@ -320,7 +320,7 @@ export default {
 
 @media (width <= 512px) {
   .home-news-container {
-    min-height: calc(100% - 20px);
+    min-height: calc(100% - 10px);
     margin-bottom: 35px;
     .home-news-text {
       padding: 0;

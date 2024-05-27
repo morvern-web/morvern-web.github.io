@@ -367,9 +367,10 @@ footer {
     background-position: top;
     .content-container {
       background: radial-gradient(fade(black, 50%), fade(black, 75%));
-      padding: 25px;
+      padding: 0;
       main {
         overflow: scroll;
+        padding: 25px;
       }
     }
   }
