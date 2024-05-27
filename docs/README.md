@@ -24,9 +24,9 @@ For **news** entries - The 'date' field represents the date that the news will g
 
 For **live** entries - The 'date' field represents the date of the event. The 'announced' field represents the date that the entry will go live on the site.
 
-For each of these, you can set a specific time if you wish, e.g. setting "2024-10-17 09:00:00" will make that entry go live at 9am GMT on that date.
+For each of these, you can set a specific time if you wish, e.g. setting "2024-10-17 09:00:00" will make that entry go live at 9am on that date.
 
-If it is set to be a date without a time, e.g. "2024-10-17", the entry will go live at midnight GMT on that date.
+If it is set to be a date without a time, e.g. "2024-10-17", the entry will go live at midnight on that date.
 
 
 
