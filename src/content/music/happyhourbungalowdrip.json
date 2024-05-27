@@ -2,28 +2,28 @@
   "type": "album",
   "title": "Happy Hour Bungalow Drip",
   "date": "2024-06-17",
+  "announced": "2024-05-27",
   "label": "ŠOP Records",
   "catNumber": "",
-  "bandcamp": "",
+  "bandcamp": "album=3654087423",
   "tracklist": [
     "Happy Guy",
     "Mr. Instructor",
-    "Apocalypse",
-    "You're All Talk",
-    "V.A.S.K.O."
+    "The Apocalypse",
+    "You Are All Talk",
+    "Viral Atomic Sabotage Knock-Out"
   ],
   "credits": {
     "band": [
       "Jan Cizej - vocals, guitar, synth",
       "Luka Ivezič - guitar",
-      "Miha Konrad - drums, back vocals, effects",
+      "Miha Konrad - drums, effects, back vocals",
       "Jay - bass"
     ],
     "other": [
       "Jan Cizej - recording, mixing",
       "Miha Konrad - mixing, mastering",
-      "Maja Poljanc - album cover art, merch design",
-      "Tit Podobnik - director"
+      "Maja Poljanc - cover art"
     ]
   }
 }

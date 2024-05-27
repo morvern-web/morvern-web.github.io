@@ -54,7 +54,10 @@ export default {
 
   computed: {
     entries() {
-      const visible = this.musicData.filter((i) => !i.hidden && (this.$date(i.date) <= this.$date()));
+      const visible = this.musicData.filter((i) => {
+        const showDate = i.announced ? i.announced : i.date;
+        return !i.hidden && (this.$date(showDate) <= this.$date());
+      });
       return {
         Albums: visible.filter((i) => i.type === 'album'),
         Singles: visible.filter((i) => i.type === 'single'),
