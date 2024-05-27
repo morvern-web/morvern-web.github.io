@@ -1,4 +1,5 @@
 {
+  "type": "live",
   "title": "Live From The Home of Freedom",
   "date": "2024-02-02",
   "bandcamp": "730705994",
@@ -16,8 +17,8 @@
       "Miha Konrad - bass"
     ],
     "other": [
-      "Erik Kerpan - audio recording, mix & master",
-      "recorded in Dom Svobode, Trbovlje on 29 October 2023"
+      "Recorded at Dom Svobode, Trbovlje on 29 October 2023",
+      "Live sound recorded, mixed & mastered by Erik Kerpan"
     ]
   }
 }

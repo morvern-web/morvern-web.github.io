@@ -1,10 +1,10 @@
 {
-  "hidden": "true",
+  "type": "live",
   "title": "CELICA LIVE 23'",
   "date": "2023-12-03",
   "label": "ŠOP Records",
   "catNumber": "SOP238",
-  "bandcamp": "2878723752",
+  "bandcamp": "1946100878",
   "tracklist": [
     "The Stand",
     "Grave Diggers",
@@ -25,8 +25,9 @@
       "Miha Konrad - bass"
     ],
     "other": [
-      "live sound captured by Erik Kerpan",
-      "mixed by Jan in AsKeySnjt STUDIO"
+      "Recorded at Hostel Celica, Ljubljana on 20 July 2023",
+      "Live sound captured by Erik Kerpan",
+      "Mixed by Jan Cizej in AsKeySnjt STUDIO"
     ]
   }
 }

@@ -1,16 +1,24 @@
 <template>
   <main class="music-container">
-    <div class="music-grid">
-      <div
-        v-for="album in albums"
-        :key="album.title"
-        class="album-entry"
-      >
-        <img
-          :src="getImgSrc(album.title)"
-          class="album-artwork"
-          @click="itemClick(album)"
-        />
+
+    <div
+      v-for="items, header in entries"
+      :key="header"
+      class="music-group"
+    >
+      <h2 class="music-header">{{ header }}</h2>
+      <div class="music-grid">
+        <div
+          v-for="item in items"
+          :key="item.title"
+          class="album-entry"
+        >
+          <img
+            :src="getImgSrc(item.title)"
+            class="album-artwork"
+            @click="itemClick(item)"
+          />
+        </div>
       </div>
     </div>
 
@@ -45,8 +53,13 @@ export default {
   },
 
   computed: {
-    albums() {
-      return this.musicData.filter((i) => !i.hidden);
+    entries() {
+      const visible = this.musicData.filter((i) => !i.hidden && (this.$date(i.date) <= this.$date()));
+      return {
+        Albums: visible.filter((i) => i.type === 'album'),
+        Singles: visible.filter((i) => i.type === 'single'),
+        Live: visible.filter((i) => i.type === 'live'),
+      };
     },
   },
 
@@ -57,8 +70,10 @@ export default {
   mounted() {
     if (this.item) {
       setTimeout(() => {
-        const album = this.albums.find((i) => i.title === this.item);
-        this.itemClick(album);
+        const entry = this.entries.Albums.find((i) => i.title === this.item)
+          || this.entries.Singles.find((i) => i.title === this.item)
+          || this.entries.Live.find((i) => i.title === this.item);
+        this.itemClick(entry);
       }, 400);
     }
   },
@@ -67,26 +82,33 @@ export default {
 
 <style lang="less" scoped>
 .music-container {
-  .music-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
+  .music-group {
+    &:not(:first-child) {
+      margin-top: 50px;
+      border-top: 2px solid grey;
+      padding-top: 25px;
+    }
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 50px;
 
-    .album-entry {
-      cursor: pointer;
-      width: fit-content;
-      height: fit-content;
-      margin: auto;
-      margin-top: 0;
-      overflow: hidden;
-      border-radius: 20px;
-      border: 1px solid grey;
-      .shine-effect();
-
-      .album-artwork {
-        display: block;
-        width: 100%;
+      .album-entry {
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
         margin: auto;
+        margin-top: 0;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 1px solid grey;
+        .shine-effect();
+
+        .album-artwork {
+          display: block;
+          width: 100%;
+          margin: auto;
+        }
       }
     }
   }
@@ -95,9 +117,11 @@ export default {
 
 @media (width <= 1024px) {
   .music-container {
-    .music-grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 35px;
+    .music-group {
+      .music-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 35px;
+      }
     }
   }
 }
@@ -105,9 +129,14 @@ export default {
 
 @media (width <= 512px) {
   .music-container {
-    .music-grid {
-      grid-template-columns: unset;
-      grid-gap: 25px;
+    .music-group {
+      &:not(:first-child) {
+        margin-top: 35px;
+      }
+      .music-grid {
+        grid-template-columns: unset;
+        grid-gap: 25px;
+      }
     }
   }
 }

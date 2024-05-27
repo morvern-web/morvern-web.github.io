@@ -113,6 +113,10 @@ export default {
     padding: 10px;
     padding-right: 40px;
   }
+  .live-entry-link {
+    top: 7px;
+    right: 7px;
+  }
 }
 
 @media (pointer: fine) {

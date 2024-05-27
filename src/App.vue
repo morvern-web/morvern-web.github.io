@@ -346,6 +346,7 @@ footer {
 
         .navigation-item {
           flex: 0 0 calc(100% / 6);
+          font-size: 1.1rem;
           &:first-child {
             border-left: none;
           }

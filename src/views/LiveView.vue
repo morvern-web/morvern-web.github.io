@@ -6,7 +6,7 @@
       class="live-group"
     >
       <h2 class="live-group-header">
-        {{ groupHeader }}:
+        {{ groupHeader }}
       </h2>
 
       <div

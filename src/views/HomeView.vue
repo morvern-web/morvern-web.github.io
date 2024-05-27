@@ -15,13 +15,19 @@
       <div
         v-if="news?.image"
         class="home-news-image-container"
+        :class="[
+          news.imgType,
+          { 'clickable': news.imgUrl || news.imgItem },
+        ]"
       >
         <img
           :src="getImgSrc(news.image, news.imgType)"
           class="home-news-image"
-          @click="news.url
-            ? itemClick(news.url, true)
-            : itemClick({ name: `${news.imgType}item`, item: news.imgItem })"
+          @click="news.imgUrl
+            ? itemClick(news.imgUrl, true)
+            : news.imgItem
+              ? itemClick({ name: `${news.imgType}item`, item: news.imgItem })
+              : null"
         />
       </div>
 
@@ -30,6 +36,10 @@
         @click="itemClick('news')"
       >
         See more >>
+      </div>
+
+      <div class="home-news-more">
+        ⌄
       </div>
     </div>
 
@@ -56,6 +66,7 @@
         <div class="home-album">
           <h6
             class="home-album-title"
+            :class="album?.type"
             @click="itemClick({ name: 'musicitem', item: album.title })"
           >
             {{ album?.title }}
@@ -140,11 +151,11 @@ export default {
     },
 
     album() {
-      return this.musicData.filter((i) => !i.hidden)[0];
+      return this.musicData.filter((i) => !i.hidden && (this.$date(i.date) <= this.$date()))[0];
     },
 
     video() {
-      return this.videoData.filter((i) => !i.hidden)[0];
+      return this.videoData.filter((i) => !i.hidden && (this.$date(i.date) <= this.$date()))[0];
     },
 
     photo() {
@@ -170,6 +181,7 @@ export default {
 }
 
 .home-news-container {
+  position: relative;
   min-height: 100%;
   margin-bottom: 50px;
   display: flex;
@@ -194,16 +206,33 @@ export default {
   }
 
   .home-news-image-container {
-    width: 100%;
+    width: 80%;
     max-width: 350px;
     margin: 35px auto 0;
-    border-radius: 20px;
-    cursor: pointer;
+    border-radius: 10px;
     .home-news-image {
       width: 100%;
-      border-radius: 20px;
+      border-radius: 10px;
     }
-    .shine-effect();
+    &.music {
+      max-width: 250px;
+    }
+    &.clickable {
+      cursor: pointer;
+      .shine-effect();
+    }
+  }
+
+  .home-news-more {
+    display: none;
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    pointer-events: none;
   }
 }
 
@@ -234,7 +263,7 @@ export default {
     .home-photo {
       width: 100%;
       background-color: fade(black, 50%);
-      border-radius: 20px;
+      border-radius: 10px;
       padding: 20px;
       padding-top: 12px;
     }
@@ -243,8 +272,10 @@ export default {
 
 .home-album {
   .home-album-title {
-    font-style: italic;
     padding-right: 10px;
+    &:not(.single) {
+      font-style: italic;
+    }
   }
 }
 
@@ -265,7 +296,7 @@ export default {
     width: fit-content;
     height: fit-content;
     margin: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
     border: 1px solid grey;
     .shine-effect();
@@ -290,12 +321,7 @@ export default {
 @media (width <= 512px) {
   .home-news-container {
     min-height: calc(100% - 20px);
-    padding-bottom: 20px;
-    line-height: 1.5;
-    .home-news-title {
-      padding: 15px 0px;
-      font-size: 2.5rem;
-    }
+    margin-bottom: 35px;
     .home-news-text {
       padding: 0;
     }

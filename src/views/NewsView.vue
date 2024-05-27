@@ -88,7 +88,7 @@ export default {
     .news-item {
       background-color: fade(black, 50%);
       padding: 25px 15px;
-      // border-radius: 20px;
+      border-radius: 10px;
 
       .news-item-date,
       .news-item-title,
@@ -116,11 +116,11 @@ export default {
         width: 100%;
         max-width: 350px;
         margin: 35px auto 0;
-        border-radius: 20px;
+        border-radius: 10px;
         cursor: pointer;
         .news-item-image {
           width: 100%;
-          border-radius: 20px;
+          border-radius: 10px;
         }
         .shine-effect();
       }

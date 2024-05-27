@@ -71,14 +71,14 @@ export default {
 .album-embed-container {
   height: 100%;
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: grey;
 
   .album-embed {
     width: 100%;
     height: 100%;
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
 
     iframe {

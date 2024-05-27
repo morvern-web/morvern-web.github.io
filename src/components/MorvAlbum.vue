@@ -10,20 +10,29 @@
           <MorvIcons
             :icons="albumOptions(album)"
             :selected="(!selectedOption || selectedOption === 'cover')
-              ? 'tracklist' : selectedOption"
+              ? albumOptions(album).includes('tracklist')
+                ? 'tracklist'
+                : 'credits'
+              : selectedOption"
             @click="optionClick"
           />
         </div>
 
         <div class="album-info-container">
           <div class="album-title-container">
-            <h3 class="album-title">
+            <h3
+              class="album-title"
+              :class="album.type"
+            >
               {{ album.title }}
             </h3>
             <h6 class="album-details">
               <span>{{ $date(album.date).format('DD MMMM YYYY') }}</span>
               <span v-if="album.label"> - {{ album.label }}</span>
               <span v-if="album.catNumber"> - {{ album.catNumber }}</span>
+            </h6>
+            <h6 v-if="album.from">
+              from <span style="font-style:italic;">{{ album.from }}</span>
             </h6>
           </div>
 
@@ -33,7 +42,7 @@
               mode="out-in"
             >
               <div
-                v-if="!selectedOption
+                v-if="(!selectedOption && albumOptions(album).includes('tracklist'))
                   || selectedOption === 'cover'
                   || selectedOption === 'tracklist'"
                 class="album-tracklist-container"
@@ -49,7 +58,8 @@
               </div>
 
               <div
-                v-else-if="selectedOption === 'credits'"
+                v-else-if="!selectedOption
+                  || selectedOption === 'credits'"
                 class="album-credits-container"
               >
                 <ul
@@ -89,7 +99,10 @@
 
       <div class="album-container-mobile">
         <div class="album-title-container">
-          <h3 class="album-title">
+          <h3
+            class="album-title"
+            :class="album.type"
+          >
             {{ album.title }}
           </h3>
           <h6 class="album-details">
@@ -102,6 +115,9 @@
               <span class="album-cat-number-divider"> - </span>
               {{ album.catNumber }}
             </span>
+          </h6>
+          <h6 v-if="album.from">
+            from <span style="font-style:italic;">{{ album.from }}</span>
           </h6>
         </div>
 
@@ -213,8 +229,10 @@ export default {
   computed: {
     albumOptions() {
       return (album) => {
+        const defaultOpts = album.type === 'single'
+          ? ['credits'] : ['tracklist', 'credits'];
         const options = ['bandcamp', 'spotify', 'applemusic', 'deezer', 'youtube'];
-        return ['tracklist', 'credits'].concat(
+        return defaultOpts.concat(
           Object.keys(album).filter((key) => options.includes(key))
             .sort((a, b) => options.indexOf(a) - options.indexOf(b))
         );
@@ -247,7 +265,7 @@ export default {
   .album-artwork {
     object-fit: contain;
     height: calc(100% - 45px);
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid grey;
   }
 }
@@ -256,6 +274,9 @@ export default {
   margin-bottom: 1rem;
   .album-title {
     margin-right: 25px;
+    &.single {
+      font-style: normal;
+    }
   }
   .album-details {
     font-size: 1.1rem;
@@ -326,7 +347,7 @@ export default {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 10px;
 
     .album-title-container {
       flex: 0;
@@ -349,7 +370,7 @@ export default {
 
       .album-info-viewport {
         height: 100%;
-        border-radius: 20px;
+        border-radius: 10px;
         overflow: hidden;
 
         .album-info {
@@ -428,6 +449,17 @@ export default {
         }
         .album-cat-number-divider {
           padding-left: 2px;
+        }
+      }
+    }
+    .album-info-container {
+      .album-info-viewport {
+        .album-info {
+          .album-credits-container {
+            .album-credits-band {
+              margin-bottom: 1rem;
+            }
+          }
         }
       }
     }

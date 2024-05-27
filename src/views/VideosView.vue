@@ -53,7 +53,7 @@ export default {
 
   computed: {
     videos() {
-      return this.videoData.filter((i) => !i.hidden);
+      return this.videoData.filter((i) => !i.hidden && (this.$date(i.date) <= this.$date()));
     },
   },
 
@@ -82,7 +82,7 @@ export default {
     .video-entry {
       cursor: pointer;
       overflow: hidden;
-      border-radius: 20px;
+      border-radius: 10px;
       border: 1px solid grey;
       .shine-effect();
 
