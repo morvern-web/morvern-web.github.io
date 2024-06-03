@@ -38,7 +38,10 @@
         See more >>
       </div>
 
-      <div class="home-news-more">
+      <div
+        class="home-news-more"
+        :style="`opacity:${1 - Math.min(scrollPosition / 100, 1)};`"
+      >
         ⌄
       </div>
     </div>
@@ -139,6 +142,12 @@ export default {
 
   mixins: [MediaMixin],
 
+  data() {
+    return {
+      scrollPosition: null,
+    };
+  },
+
   computed: {
     news() {
       return this.newsData.find((i) => this.$date(i.date) < this.$date());
@@ -161,6 +170,13 @@ export default {
     photo() {
       return null;
     },
+  },
+
+  mounted() {
+    const container = document.querySelector('.content-container');
+    container.addEventListener('scroll', () => {
+      this.scrollPosition = container.scrollTop;
+    }, { passive: true });
   },
 
   methods: {
@@ -224,7 +240,6 @@ export default {
   }
 
   .home-news-more {
-    display: none;
     position: absolute;
     bottom: -1.5rem;
     left: 0;
@@ -233,6 +248,9 @@ export default {
     font-size: 2rem;
     font-weight: bold;
     pointer-events: none;
+    @media(pointer: coarse) {
+      display: none;
+    }
   }
 }
 
@@ -247,6 +265,9 @@ export default {
   .home-video-header,
   .home-photo-header {
     color: white;
+  }
+  .home-live-header {
+    padding-bottom: 10px;
   }
 }
 
