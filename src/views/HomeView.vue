@@ -211,6 +211,10 @@ export default {
     text-align: center;
   }
 
+  .home-news-title {
+    padding-top: 0;
+  }
+
   .home-news-archive {
     display: none;
     cursor: pointer;
