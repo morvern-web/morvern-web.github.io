@@ -51,7 +51,10 @@
       v-if="live.length"
       class="home-live-container"
     >
-      <h4 class="home-live-header">
+      <h4
+        class="home-live-header"
+        @click="itemClick('live')"
+      >
         Upcoming live events
       </h4>
       <MorvLive
@@ -63,7 +66,10 @@
     <div class="home-media-container">
       <!-- ALBUM -->
       <div class="home-album-container">
-        <h4 class="home-album-header">
+        <h4
+          class="home-album-header"
+          @click="itemClick('music')"
+        >
           Latest music
         </h4>
         <div class="home-album">
@@ -86,7 +92,10 @@
 
       <!-- VIDEO -->
       <div class="home-video-container">
-        <h4 class="home-video-header">
+        <h4
+          class="home-video-header"
+          @click="itemClick('videos')"
+        >
           Latest video
         </h4>
         <div class="home-video">
@@ -111,7 +120,10 @@
         v-if="photo"
         class="home-photo-container"
       >
-        <h4 class="home-photo-header">
+        <h4
+          class="home-photo-header"
+          @click="itemClick('photos')"
+        >
           Latest photo:
         </h4>
         <div class="home-photo">
@@ -244,6 +256,7 @@ export default {
   }
 
   .home-news-more {
+    display: none;
     position: absolute;
     bottom: -1.5rem;
     left: 0;
@@ -269,6 +282,7 @@ export default {
   .home-video-header,
   .home-photo-header {
     color: white;
+    cursor: pointer;
   }
   .home-live-header {
     padding-bottom: 10px;
