@@ -38,5 +38,45 @@
     "location": "Slovenj Gradec, Slovenia",
     "info": "Flow Ramps Fest 2024",
     "link": "https://www.instagram.com/p/C6x1q0QISWS/"
+  },
+  {
+    "date": "2024-08-16",
+    "announced": "2024-07-30",
+    "venue": "KUD Channel Zero",
+    "location": "Ljubljana, Slovenia",
+    "info": "*Krom: b(L)ender v2",
+    "link": "https://www.ch0.org/krom-blender-v2/"
+  },
+  {
+    "date": "2024-09-11",
+    "announced": "2024-09-01",
+    "venue": "AKC Gnezdo",
+    "location": "Kruševac, Serbia",
+    "info": "w/ Uryan",
+    "link": ""
+  },
+  {
+    "date": "2024-09-12",
+    "announced": "2024-09-01",
+    "venue": "Bulevar Arsenija Čarnojevića",
+    "location": "Beograd, Serbia",
+    "info": "Samit Nesvrstanih 2024",
+    "link": ""
+  },
+  {
+    "date": "2024-09-13",
+    "announced": "2024-09-01",
+    "venue": "AKC Fuzz",
+    "location": "Niš, Serbia",
+    "info": "w/ Uryan",
+    "link": ""
+  },
+  {
+    "date": "2024-09-14",
+    "announced": "2024-09-01",
+    "venue": "Slamanje",
+    "location": "Osijek, Croatia",
+    "info": "w/ Uryan",
+    "link": ""
   }
 ]
