@@ -44,7 +44,9 @@ export default {
     tooltipText() {
       return (string) => {
         return (string === 'applemusic') ? 'Apple Music'
-          : string.charAt(0).toUpperCase() + string.slice(1);
+          : (string === 'bandsintown') ? 'bandsintown'
+            : (string === 'youtube') ? 'YouTube'
+              : string.charAt(0).toUpperCase() + string.slice(1);
       };
     },
   },
@@ -173,6 +175,13 @@ export default {
     &:before {
       -webkit-mask-image: url('@/assets/icons/bandcamp.svg');
       mask-image: url('@/assets/icons/bandcamp.svg');
+    }
+  }
+
+  .bandsintown {
+    &:before {
+      -webkit-mask-image: url('@/assets/icons/bandsintown.svg');
+      mask-image: url('@/assets/icons/bandsintown.svg');
     }
   }
 
