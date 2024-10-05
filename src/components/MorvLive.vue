@@ -78,10 +78,10 @@ export default {
 
 .live-entry-link {
   position: absolute;
-  top: 10px;
+  top: 9px;
   right: 10px;
-  height: 25px;
-  width: 25px;
+  height: 24px;
+  width: 24px;
   background-color: grey;
   border-radius: 50%;
   cursor: pointer;
