@@ -38,15 +38,15 @@ export default {
 
   computed: {
     shows() {
+      const entries = this.entries.filter((i) => !i.hidden);
+
       if (!this.reverse) {
-        return this.entries;
+        return entries;
       }
 
       let tmp = [];
-      const sortArr = Object.keys(this.entries).sort().reverse();
-      sortArr.forEach((i) => {
-        tmp.push(this.entries[i]);
-      });
+      const sortArr = Object.keys(entries).sort().reverse();
+      sortArr.forEach((i) => { tmp.push(entries[i]); });
       return tmp;
     },
   },
