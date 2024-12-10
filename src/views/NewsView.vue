@@ -32,8 +32,8 @@
           <img
             :src="getImgSrc(news.image, news.imgType)"
             class="news-item-image"
-            @click="news.url
-              ? itemClick(news.url, true)
+            @click="news.imgUrl
+              ? itemClick(news.imgUrl, true)
               : itemClick({ name: `${news.imgType}item`, item: news.imgItem })"
           />
         </div>
