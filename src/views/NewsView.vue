@@ -120,6 +120,7 @@ export default {
         cursor: pointer;
         .news-item-image {
           width: 100%;
+          border: 1px solid grey;
           border-radius: 10px;
         }
         .shine-effect();

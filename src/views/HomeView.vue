@@ -244,6 +244,7 @@ export default {
     border-radius: 10px;
     .home-news-image {
       width: 100%;
+      border: 1px solid grey;
       border-radius: 10px;
     }
     &.music {
