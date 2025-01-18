@@ -9,7 +9,7 @@ export default {
 
   methods: {
     getImgSrc(img, type = 'music') {
-      const filename = `${img.toLowerCase().replace(/[\s.,'()0-9]/g, '')}.jpg`;
+      const filename = `${img.toLowerCase().replace(/[\s.,?'()0-9]/g, '')}.jpg`;
 
       const path = (type === 'video')
         ? `../assets/videos/${filename}`

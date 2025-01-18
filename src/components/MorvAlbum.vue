@@ -71,7 +71,9 @@
                     :key="credit"
                   >
                     <span class="credits-name">{{ credit.split('-')[0] }}</span>
-                    <span>- {{ credit.split('-')[1] }}</span>
+                    <span v-if="credit.split('-')[1]">
+                      - {{ credit.split('-')[1] }}
+                    </span>
                   </li>
                 </ul>
                 <ul
@@ -81,9 +83,8 @@
                   <li
                     v-for="credit in album.credits.other"
                     :key="credit"
-                  >
-                    {{ credit }}
-                  </li>
+                    v-html="credit"
+                  />
                 </ul>
               </div>
 
@@ -165,7 +166,9 @@
                       :key="credit"
                     >
                       <span class="credits-name">{{ credit.split('-')[0] }}</span>
-                      <span>- {{ credit.split('-')[1] }}</span>
+                      <span v-if="credit.split('-')[1]">
+                        - {{ credit.split('-')[1] }}
+                      </span>
                     </li>
                   </ul>
                   <ul
@@ -175,9 +178,8 @@
                     <li
                       v-for="credit in album.credits.other"
                       :key="credit"
-                    >
-                      {{ credit }}
-                    </li>
+                      v-html="credit"
+                    />
                   </ul>
                 </div>
 

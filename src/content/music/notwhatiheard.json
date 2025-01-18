@@ -1,0 +1,29 @@
+{
+  "type": "album",
+  "title": "Not What I Heard",
+  "date": "2021-02-09",
+  "label": "ŠOP Records",
+  "catNumber": "SOP123",
+  "bandcamp": "album=733354227",
+  "tracklist": [
+    "Die",
+    "Our Little Tribe",
+    "Balance Yr Heart",
+    "Unspoken Words",
+    "Mother's Porch II",
+    "Kaleidoscope",
+    "Eyes On Me",
+    "Jesus Saves",
+    "Lost Sun Gods",
+    "Time",
+    "Distant Season"
+  ],
+  "credits": {
+    "band": [
+      "Written, recorded and mixed by morvern",
+      "Damjan Manevski - back vocals on \"Die\"",
+      "Nejc Čulk - back vocals on \"Kaleidoscope\", bass on \"Time\"",
+      "Jurij Cizej - saxophone on \"Eyes On Me\""
+    ]
+  }
+}
