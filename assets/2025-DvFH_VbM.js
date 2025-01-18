@@ -1,0 +1,1 @@
+const n=[{date:"2025-02-05",announced:"2025-01-13",venue:"KUD Channel Zero",location:"Ljubljana, Slovenia",info:"w/ Long Dumb Voices",link:"https://www.facebook.com/events/1747296672835699"}];export{n as default};
