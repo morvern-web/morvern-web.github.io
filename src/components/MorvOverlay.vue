@@ -38,9 +38,9 @@ export default {
   },
 
   mounted() {
-    this.showBg = true;
-    setTimeout(() => { this.showOverlay = true; }, 50);
-    setTimeout(() => { this.transitionType = 'slide-down-transition'; }, 100);
+    setTimeout(() => { this.showBg = true; }, 50);
+    setTimeout(() => { this.showOverlay = true; }, 100);
+    setTimeout(() => { this.transitionType = 'slide-down-transition'; }, 150);
   },
 
   methods: {
@@ -61,6 +61,7 @@ export default {
   width: 100%;
   height: 100%;
   padding: 50px;
+  z-index: 5;
   background: fade(black, 75%);
   display: flex;
   flex-direction: column;
