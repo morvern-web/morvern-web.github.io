@@ -9,7 +9,8 @@
         {{ $date(show.date).format('DD MMM') }} -
       </span>
       <span class="live-entry-venue">
-        {{ show.venue }} - {{ show.location }}
+        <span v-if="show.venue">{{ show.venue }} - </span>
+        {{ show.location }}
       </span>
       <span
         v-if="show.info"
