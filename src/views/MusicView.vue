@@ -59,7 +59,7 @@ export default {
         return !i.hidden && (this.$date(showDate) <= this.$date());
       });
       return {
-        Albums: visible.filter((i) => i.type === 'album'),
+        'Albums & EPs': visible.filter((i) => i.type === 'album'),
         Singles: visible.filter((i) => i.type === 'single'),
         Live: visible.filter((i) => i.type === 'live'),
       };
