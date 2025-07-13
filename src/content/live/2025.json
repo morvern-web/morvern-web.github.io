@@ -53,7 +53,8 @@
     "venue": "SU KAoperativa",
     "location": "Karlovac, Croatia",
     "info": "PARKiranje 2025",
-    "link": "https://visitkarlovac.hr/dogadaj/parkiranje-2025/"
+    "link": "https://visitkarlovac.hr/dogadaj/parkiranje-2025/",
+    "cancelled": true
   },
   {
     "date": "2025-07-19",

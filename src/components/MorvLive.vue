@@ -4,6 +4,7 @@
       v-for="show in shows"
       :key="show.date"
       class="live-date-entry"
+      :class="{ 'live-date-cancelled': show.cancelled }"
     >
       <span class="live-entry-date">
         {{ $date(show.date).format('DD MMM') }} -
@@ -74,6 +75,9 @@ export default {
   }
   &:last-child {
     border-bottom: 2px solid grey;
+  }
+  &.live-date-cancelled {
+    text-decoration: line-through;
   }
 }
 
