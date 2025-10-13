@@ -241,7 +241,7 @@ header {
     width: 100%;
     height: 100%;
     padding: 50px;
-    background: linear-gradient(to right, fade(black, 70%) 5%, fade(black, 60%) 50%, fade(black, 85%));
+    background: linear-gradient(to right, fade(black, 80%) 5%, fade(black, 65%) 50%, fade(black, 80%));
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
     &.fade-in {
