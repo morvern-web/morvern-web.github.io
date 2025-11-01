@@ -119,6 +119,7 @@
             <MorvHover
               v-if="video"
               :item="video"
+              type="video"
               @click="itemClick({ name: 'videositem', item: video.title })"
             />
           </div>

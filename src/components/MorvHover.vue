@@ -38,7 +38,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 30px;
   background: fade(black, 85%);
   align-content: center;  
   text-align: center;
