@@ -86,6 +86,11 @@
               class="home-album-artwork"
               @click="itemClick({ name: 'musicitem', item: album.title })"
             />
+            <MorvHover
+              v-if="album"
+              :item="album"
+              @click="itemClick({ name: 'musicitem', item: album.title })"
+            />
           </div>
         </div>
       </div>
@@ -109,6 +114,11 @@
             <img
               :src="video ? getImgSrc(video?.title, 'video') : null"
               class="home-video-artwork"
+              @click="itemClick({ name: 'videositem', item: video.title })"
+            />
+            <MorvHover
+              v-if="video"
+              :item="video"
               @click="itemClick({ name: 'videositem', item: video.title })"
             />
           </div>
@@ -325,6 +335,9 @@ export default {
   .home-album-title,
   .home-video-title,
   .home-photo-title {
+    @media(pointer: fine) {
+      display: none;
+    }
     text-align: center;
     color: white;
     padding-bottom: 10px;
