@@ -97,11 +97,19 @@
     "link": "https://www.cid.si/dogodki/kepica-mesanega-morvern-trbovlje-dolomite-dust-maribor-sickbreed-kranj/"
   },
   {
-    "date": "2025-11-02",
-    "announced": "2025-12-31",
+    "date": "2025-11-25",
+    "announced": "2025-11-13",
+    "venue": "Dom Akademski Kolegij",
+    "location": "Ljubljana, Slovenia",
+    "info": "w/ Matthias von Stumberger und seine Jugend",
+    "link": ""
+  },
+  {
+    "date": "2025-12-05",
+    "announced": "2025-11-13",
     "venue": "Klub Gromka",
     "location": "Ljubljana, Slovenia",
-    "info": "Details to be announced",
+    "info": "w/ lars from norway",
     "link": ""
   },
   {
@@ -109,7 +117,7 @@
     "announced": "2025-10-13",
     "venue": "MC Pekarna",
     "location": "Maribor, Slovenia",
-    "info": "Details to be announced",
-    "link": ""
+    "info": "w/ Šalamun",
+    "link": "https://www.pekarna.net/napovednik/salamun-morvern-2025/"
   }
 ]
