@@ -58,7 +58,7 @@
         size="small"
       />
       <div class="footer-copyright">
-        <div>© 2024-2025 Morvern</div>
+        <div>© 2024-2026 Morvern</div>
         <div class="desktop">photo: <a href="https://www.instagram.com/benjaminkreze.photography" target="_blank" rel="external">Benjamin Kreze</a></div>
         <div class="mobile">photo: <a href="https://www.instagram.com/izakkermc/" target="_blank" rel="external">Izak Kermc</a></div>
       </div>
