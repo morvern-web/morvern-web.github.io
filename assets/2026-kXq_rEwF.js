@@ -1,1 +1,0 @@
-const e=[{date:"2026-01-30",announced:"2026-01-20",venue:"Kino Šiška",location:"Ljubljana, Slovenia",info:"w/ Repetitor + Lelee + Ubili su batlera",link:"https://www.kinosiska.si/dogodek/repetitor/"}];export{e as default};
