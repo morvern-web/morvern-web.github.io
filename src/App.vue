@@ -96,9 +96,7 @@ export default {
 
   mounted() {
     const content = document.querySelector('.content-container');
-    setTimeout(() => {
-      content.classList.remove('fade-in');
-    }, 100);
+    setTimeout(() => { content.classList.remove('fade-in'); }, 100);
   },
 
   methods: {
