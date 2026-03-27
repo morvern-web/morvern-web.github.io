@@ -59,8 +59,10 @@
       />
       <div class="footer-copyright">
         <div>© 2024-2026 Morvern</div>
-        <div class="desktop">photo: <a href="https://www.instagram.com/benjaminkreze.photography" target="_blank" rel="external">Benjamin Kreze</a></div>
-        <div class="mobile">photo: <a href="https://www.instagram.com/izakkermc/" target="_blank" rel="external">Izak Kermc</a></div>
+        <div>
+          <span @click="setBg">photo:</span>
+          <a href="https://www.instagram.com/to_ni_res" target="_blank" rel="external">Tilen Ritter</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -96,6 +98,7 @@ export default {
 
   mounted() {
     const content = document.querySelector('.content-container');
+    this.setBg();
     setTimeout(() => { content.classList.remove('fade-in'); }, 100);
   },
 
@@ -150,6 +153,12 @@ export default {
 
     burgerClick() {
       this.mobileMenuHidden = !this.mobileMenuHidden;
+    },
+
+    setBg() {
+      const content = document.querySelector('#content');
+      content.className = '';
+      content.classList.add(`bg${Math.floor((Math.random() * 9) + 1)}`);
     },
   },
 };
@@ -229,21 +238,79 @@ header {
 #content {
   position: relative;
   overflow: hidden;
-  background-image: url('@/assets/bg.jpg');
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-
   .content-container {
     overflow: scroll;
     width: 100%;
     height: 100%;
     padding: 50px;
-    background: linear-gradient(to right, fade(black, 80%) 5%, fade(black, 65%) 50%, fade(black, 80%));
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
     &.fade-in {
       background: black;
+    }
+  }
+
+  &.bg1 {
+    background-image: url('@/assets/bg/nbg1.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 60%), fade(black, 70%), fade(black, 60%));
+    }
+  }
+  &.bg2 {
+    background-image: url('@/assets/bg/nbg2.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 10%), fade(black, 90%));
+    }
+  }
+  &.bg3 {
+    background-image: url('@/assets/bg/nbg3.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 20%), fade(black, 60%));
+    }
+  }
+  &.bg4 {
+    background-image: url('@/assets/bg/nbg4.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 20%), fade(black, 60%));
+    }
+  }
+  &.bg5 {
+    background-image: url('@/assets/bg/nbg5.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 20%), fade(black, 40%), fade(black, 30%));
+    }
+  }
+  &.bg6 {
+    background-image: url('@/assets/bg/nbg6.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 10%), fade(black, 40%), fade(black, 30%));
+    }
+  }
+  &.bg7 {
+    background-image: url('@/assets/bg/nbg7.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 0%), fade(black, 50%));
+    }
+  }
+  &.bg8 {
+    background-image: url('@/assets/bg/nbg8.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 30%), fade(black, 60%), fade(black, 0%));
+    }
+  }
+  &.bg9 {
+    background-image: url('@/assets/bg/nbg9.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 0%), fade(black, 40%), fade(black, 20%));
+    }
+  }
+  &.bg10 {
+    background-image: url('@/assets/bg/nbg10.jpg');
+    .content-container {
+      background: linear-gradient(to right, fade(black, 20%), fade(black, 50%), fade(black, 30%));
     }
   }
 }
@@ -271,12 +338,6 @@ footer {
       white-space: nowrap;
       a {
         color: var(--color-text);
-      }
-      .desktop {
-        display: block;
-      }
-      .mobile {
-        display: none;
       }
     }
   }
@@ -362,14 +423,73 @@ footer {
   }
 
   #content {
-    background-image: url('@/assets/bgm.jpg');
     background-position: top;
     .content-container {
-      background: radial-gradient(fade(black, 50%), fade(black, 75%));
       padding: 0;
       main {
         overflow: scroll;
         padding: 25px;
+      }
+    }
+
+    &.bg1 {
+      background-image: url('@/assets/bg/nbgm1.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 0%), fade(black, 60%), fade(black, 0%));
+      }
+    }
+    &.bg2 {
+      background-image: url('@/assets/bg/nbgm2.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 0%), fade(black, 60%), fade(black, 20%));
+      }
+    }
+    &.bg3 {
+      background-image: url('@/assets/bg/nbgm3.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 0%), fade(black, 50%), fade(black, 0%));
+      }
+    }
+    &.bg4 {
+      background-image: url('@/assets/bg/nbgm4.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 0%), fade(black, 50%), fade(black, 0%));
+      }
+    }
+    &.bg5 {
+      background-image: url('@/assets/bg/nbgm5.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 0%), fade(black, 50%), fade(black, 0%));
+      }
+    }
+    &.bg6 {
+      background-image: url('@/assets/bg/nbgm6.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 40%), fade(black, 50%), fade(black, 0%));
+      }
+    }
+    &.bg7 {
+      background-image: url('@/assets/bg/nbgm7.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 0%), fade(black, 40%), fade(black, 0%));
+      }
+    }
+    &.bg8 {
+      background-image: url('@/assets/bg/nbgm8.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 30%), fade(black, 60%), fade(black, 0%));
+      }
+    }
+    &.bg9 {
+      background-image: url('@/assets/bg/nbgm9.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 0%), fade(black, 40%), fade(black, 20%));
+      }
+    }
+    &.bg10 {
+      background-image: url('@/assets/bg/nbgm10.jpg');
+      .content-container {
+        background: linear-gradient(to right, fade(black, 20%), fade(black, 50%), fade(black, 30%));
       }
     }
   }
@@ -377,14 +497,6 @@ footer {
   footer {
     .footer-container {
       padding: 15px 25px;
-      .footer-copyright {
-        .desktop {
-          display: none;
-        }
-        .mobile {
-          display: block;
-        }
-      }
     }
   }
 }
