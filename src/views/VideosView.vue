@@ -64,9 +64,11 @@ export default {
     videos() {
       const filtered = this.videoData.filter((i) => !i.hidden && (this.$date(i.date) <= this.$date()));
 
-      return window.innerWidth > 1024
-        ? [filtered.slice(0, 3), filtered.slice(3)]
-        : [filtered.slice(0, 2), filtered.slice(2)];
+        return window.innerWidth > 1024
+          ? [filtered.slice(0, 3), filtered.slice(3)]
+          : window.innerWidth > 512
+            ? [filtered.slice(0, 2), filtered.slice(2)]
+            : [filtered.slice(0, 1), filtered.slice(1)];
     },
   },
 

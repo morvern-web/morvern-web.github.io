@@ -89,7 +89,9 @@ export default {
 
         return window.innerWidth > 1024
           ? [group.slice(0, 3), group.slice(3)]
-          : [group.slice(0, 2), group.slice(2)];
+          : window.innerWidth > 512
+            ? [group.slice(0, 2), group.slice(2)]
+            : [group.slice(0, 1), group.slice(1)];
       }
     },
   },
