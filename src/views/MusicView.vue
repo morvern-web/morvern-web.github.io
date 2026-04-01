@@ -18,7 +18,7 @@
         >
           <div class="album-entry">
             <img
-              :src="getImgSrc(item.title)"
+              :src="getImgSrc(item.image || item.title)"
               class="album-artwork"
               @click="itemClick(item)"
             />

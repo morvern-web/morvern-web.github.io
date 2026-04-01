@@ -5,7 +5,7 @@
         <div class="album-artwork-container">
           <img
             class="album-artwork"
-            :src="getImgSrc(album.title)"
+            :src="getImgSrc(album.image || album.title)"
           />
           <MorvIcons
             :icons="albumOptions(album)"
@@ -135,7 +135,7 @@
                 >
                   <img
                     class="album-artwork"
-                    :src="getImgSrc(album.title)"
+                    :src="getImgSrc(album.image || album.title)"
                   />
                 </div>
 

@@ -82,7 +82,7 @@
           </h6>
           <div class="home-album-artwork-container">
             <img
-              :src="album ? getImgSrc(album?.title, 'music') : null"
+              :src="album ? getImgSrc(album?.image || album?.title, 'music') : null"
               class="home-album-artwork"
               @click="itemClick({ name: 'musicitem', item: album.title })"
             />
