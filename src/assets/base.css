@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/amsterdrum-grotesk');
+
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
   --vt-c-white: #ffffff;
@@ -55,6 +57,7 @@ body {
     'Fira Sans',
     'Droid Sans',
     'Helvetica Neue',
+    'Amsterdrum Grotesk',
     sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -71,21 +74,24 @@ body {
 
 h1 {
   padding: 20px 0px;
+  font-family: 'Amsterdrum Grotesk';
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: lighter;
+  letter-spacing: 2%;
 }
 
 h2 {
   padding-left: 5px;
   padding-bottom: 20px;
-  font-size: 2rem;
-  font-weight: bold;
+  font-family: 'Amsterdrum Grotesk';
+  font-size: 2.5rem;
+  font-weight: lighter;
+  letter-spacing: 2%;
   color: white;
 }
 
 h3 {
-  font-size: 1.6rem;
-  font-weight: bold;
+  font-size: 1.8rem;
   font-style: italic;
   color: white;
 }
@@ -93,13 +99,17 @@ h3 {
 h4 {
   padding-left: 5px;
   padding-bottom: 5px;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-family: 'Amsterdrum Grotesk';
+  font-size: 2rem;
+  font-weight: lighter;
+  letter-spacing: 2%;
 }
 
 h5 {
-  padding: 0px 25%;
-  font-size: 1.2rem;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 h6 {
@@ -111,6 +121,12 @@ a {
   text-underline-offset: 0.15rem;
 }
 
+.navigation-item {
+  font-family: 'Amsterdrum Grotesk';
+  font-size: 1.3rem;
+  font-weight: lighter;
+  letter-spacing: 2%;
+}
 
 @media (width <= 512px) {
   :root {

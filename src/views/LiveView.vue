@@ -27,9 +27,9 @@
           v-for="(shows, dateHeader) in group"
           :key="dateHeader"
         >
-          <h4 class="live-date-header">
+          <h5 class="live-date-header">
             {{ dateHeader }}
-          </h4>
+          </h5>
 
           <MorvLive
             :entries="shows"

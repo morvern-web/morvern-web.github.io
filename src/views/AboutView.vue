@@ -1,6 +1,6 @@
 <template>
   <main class="about-container">
-    <h4
+    <h2
       class="about-intro"
       v-html="about?.intro"
     />
