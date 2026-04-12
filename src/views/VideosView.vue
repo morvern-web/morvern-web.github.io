@@ -11,7 +11,7 @@
       >
         <div class="video-entry">
           <img
-            :src="getImgSrc(video?.title, 'video')"
+            :src="getImgSrc(video?.image || video?.title, 'video')"
             class="video-artwork"
             @click="itemClick(video)"
           />
