@@ -2,7 +2,7 @@
   {
     "title": "Headless Runner",
     "date": "2026-04-13 12:00:00",
-    "published": "2026-04-12",
+    "announced": "2026-04-12",
     "id": "LLGXomTV-po"
   },
   {
@@ -85,16 +85,27 @@
   {
     "title": "MC Pekarna, 29.10.2022",
     "date": "2022-11-23",
-    "id": "c17NzgOwPB4"
+    "id": "c17NzgOwPB4",
+    "notPromo": "true"
   },
   {
     "title": "Morvern LIVE",
     "date": "2022-07-05",
-    "id": "-T0p1fQN82g"
+    "id": "-T0p1fQN82g",
+    "notPromo": "true"
   },
   {
     "title": "morvern x friends 2022",
     "date": "2022-12-31",
-    "id": "xB9Dm1HJNt4"
+    "id": "xB9Dm1HJNt4",
+    "notPromo": "true"
+  },
+  {
+    "title": "RŠ Afterparty",
+    "image": "afterparty",
+    "date": "2026-04-14 19:00:00",
+    "announced": "2026-04-12",
+    "id": "1QfLD_tYj0U",
+    "notPromo": "true"
   }
 ]

@@ -1,32 +1,39 @@
 <template>
   <main class="video-container">
     <div
-      v-for="group in videos"
+      v-for="group, header in videos"
       :key="group[0]?.title"
-      class="video-grid"
+      class="video-group"
     >
+      <h2 class="video-header">{{ header }}</h2>
       <div
-        v-for="video in group"
-        :key="video.title"
+        v-for="items in groups(group, header)"
+        :key="items[0]?.title"
+        class="video-grid"
       >
-        <div class="video-entry">
-          <img
-            :src="getImgSrc(video?.image || video?.title, 'video')"
-            class="video-artwork"
-            @click="itemClick(video)"
-          />
-          <MorvHover
-            :item="video"
-            type="video"
-            @click="itemClick(video)"
-          />
-        </div>
-        <h6
-          class="video-title"
-          @click="itemClick(video)"
+        <div
+          v-for="video in items"
+          :key="video.title"
         >
-          {{ video.title }}
-        </h6>
+          <div class="video-entry">
+            <img
+              :src="getImgSrc(video?.image || video?.title, 'video')"
+              class="video-artwork"
+              @click="itemClick(video)"
+            />
+            <MorvHover
+              :item="video"
+              type="video"
+              @click="itemClick(video)"
+            />
+          </div>
+          <h6
+            class="video-title"
+            @click="itemClick(video)"
+          >
+            {{ video.title }}
+          </h6>
+        </div>
       </div>
     </div>
 
@@ -60,16 +67,38 @@ export default {
     },
   },
 
+  data() {
+    return {
+      groupHeaders: {
+        promo: 'Promo videos',
+        other: 'More',
+      },
+    };
+  },
+
   computed: {
     videos() {
       const filtered = this.videoData.filter((i) => !i.hidden &&
-        (this.$date(i.published || i.date) <= this.$date()));
+        (this.$date(i.announced || i.date) <= this.$date()));
+
+      return {
+        [this.groupHeaders.promo]: filtered.filter((i) => !i.notPromo),
+        [this.groupHeaders.other]: filtered.filter((i) => !!i.notPromo),
+      };
+    },
+
+    groups() {
+      return (group, groupName) => {
+        if (groupName !== this.groupHeaders.promo) {
+          return [group];
+        }
 
         return window.innerWidth > 1024
-          ? [filtered.slice(0, 3), filtered.slice(3)]
+          ? [group.slice(0, 3), group.slice(3)]
           : window.innerWidth > 512
-            ? [filtered.slice(0, 2), filtered.slice(2)]
-            : [filtered.slice(0, 1), filtered.slice(1)];
+            ? [group.slice(0, 2), group.slice(2)]
+            : [group.slice(0, 1), group.slice(1)];
+      }
     },
   },
 
@@ -80,7 +109,10 @@ export default {
   mounted() {
     if (this.item) {
       setTimeout(() => {
-        const video = this.videos.find((i) => i.title === this.item);
+        const video = this.videos[this.groupHeaders.promo].find((i) =>
+          i.title === this.item)
+          || this.videos[this.groupHeaders.other].find((i) =>
+            i.title === this.item);
         this.itemClick(video);
       }, 350);
     }
@@ -90,37 +122,53 @@ export default {
 
 <style lang="less" scoped>
 .video-container {
-  .video-grid {
-    display: grid;
+  .video-group {
+    .video-grid {
+      display: grid;
 
-    &:first-of-type {
-      .big-grid();
-    }
-    &:not(:first-of-type) {
-      .small-grid();
-    }
+      .video-entry {
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 1px solid grey;
+        .shine-effect();
 
-    .video-entry {
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 10px;
-      border: 1px solid grey;
-      .shine-effect();
+        .video-artwork {
+          display: block;
+          width: 100%;
+        }
+      }
 
-      .video-artwork {
-        display: block;
-        width: 100%;
+      .video-title {
+        @media(pointer: fine) {
+          display: none;
+        }
+
+        text-align: center;
+        color: white;
+        cursor: pointer;
       }
     }
 
-    .video-title {
-      @media(pointer: fine) {
-        display: none;
-      }
+    &:first-child {
+      .video-grid {
+        &:first-of-type {
+          .big-grid();
+        }
 
-      text-align: center;
-      color: white;
-      cursor: pointer;
+        &:not(:first-of-type) {
+          .small-grid();
+        }
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 50px;
+      border-top: 2px solid grey;
+      padding-top: 25px;
+      .video-grid {
+        .small-grid();
+      }
     }
   }
 }

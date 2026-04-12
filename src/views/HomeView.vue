@@ -112,7 +112,7 @@
           </h6>
           <div class="home-video-artwork-container">
             <img
-              :src="video ? getImgSrc(video?.title, 'video') : null"
+              :src="video ? getImgSrc(video?.image || video?.title, 'video') : null"
               class="home-video-artwork"
               @click="itemClick({ name: 'videositem', item: video.title })"
             />
@@ -183,11 +183,13 @@ export default {
     },
 
     album() {
-      return this.musicData.filter((i) => !i.hidden && (this.$date(i.date) <= this.$date()))[0];
+      return this.musicData.filter((i) => !i.hidden &&
+        (this.$date(i.date) <= this.$date()))[0];
     },
 
     video() {
-      return this.videoData.filter((i) => !i.hidden && (this.$date(i.date) <= this.$date()))[0];
+      return this.videoData.filter((i) => !i.hidden && !i.notPromo &&
+        (this.$date(i.date) <= this.$date()))[0];
     },
 
     photo() {

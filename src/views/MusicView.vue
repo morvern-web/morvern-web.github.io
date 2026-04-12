@@ -68,6 +68,16 @@ export default {
     },
   },
 
+  data() {
+    return {
+      groupHeaders: {
+        albums: 'Albums & EPs',
+        singles: 'Singles',
+        live: 'Live',
+      },
+    };
+  },
+
   computed: {
     entries() {
       const visible = this.musicData.filter((i) => {
@@ -75,15 +85,18 @@ export default {
         return !i.hidden && (this.$date(showDate) <= this.$date());
       });
       return {
-        'Albums & EPs': visible.filter((i) => i.type === 'album' || i.type === 'ep'),
-        Singles: visible.filter((i) => i.type === 'single'),
-        Live: visible.filter((i) => i.type === 'live'),
+        [this.groupHeaders.albums]: visible.filter((i) =>
+          i.type === 'album' || i.type === 'ep'),
+        [this.groupHeaders.singles]: visible.filter((i) =>
+          i.type === 'single'),
+        [this.groupHeaders.live]: visible.filter((i) =>
+          i.type === 'live'),
       };
     },
 
     groups() {
       return (group, groupName) => {
-        if (groupName !== 'Albums & EPs') {
+        if (groupName !== this.groupHeaders.albums) {
           return [group];
         }
 
@@ -103,9 +116,12 @@ export default {
   mounted() {
     if (this.item) {
       setTimeout(() => {
-        const entry = this.entries['Albums & EPs'].find((i) => i.title === this.item)
-          || this.entries.Singles.find((i) => i.title === this.item)
-          || this.entries.Live.find((i) => i.title === this.item);
+        const entry = this.entries[this.groupHeaders.albums].find((i) =>
+          i.title === this.item)
+          || this.entries[this.groupHeaders.singles].find((i) =>
+            i.title === this.item)
+          || this.entries[this.groupHeaders.live].find((i) =>
+            i.title === this.item);
         this.itemClick(entry);
       }, 350);
     }
