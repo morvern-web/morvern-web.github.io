@@ -215,6 +215,7 @@ header {
         padding: 10px 5px;
         border-left: 1.5px solid grey;
         text-align: center;
+        font-size: 1.3rem;
         color: var(--color-text);
         transition: color 0.5s;
         &:last-child {

@@ -57,7 +57,6 @@ body {
     'Fira Sans',
     'Droid Sans',
     'Helvetica Neue',
-    'Amsterdrum Grotesk',
     sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -74,19 +73,13 @@ body {
 
 h1 {
   padding: 20px 0px;
-  font-family: 'Amsterdrum Grotesk';
   font-size: 3rem;
-  font-weight: lighter;
-  letter-spacing: 2%;
 }
 
 h2 {
   padding-left: 5px;
   padding-bottom: 20px;
-  font-family: 'Amsterdrum Grotesk';
   font-size: 2.5rem;
-  font-weight: lighter;
-  letter-spacing: 2%;
   color: white;
 }
 
@@ -99,10 +92,7 @@ h3 {
 h4 {
   padding-left: 5px;
   padding-bottom: 5px;
-  font-family: 'Amsterdrum Grotesk';
   font-size: 2rem;
-  font-weight: lighter;
-  letter-spacing: 2%;
 }
 
 h5 {
@@ -121,9 +111,8 @@ a {
   text-underline-offset: 0.15rem;
 }
 
-.navigation-item {
+h1, h2, h4, .navigation-item {
   font-family: 'Amsterdrum Grotesk';
-  font-size: 1.3rem;
   font-weight: lighter;
   letter-spacing: 2%;
 }
