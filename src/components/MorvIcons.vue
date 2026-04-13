@@ -40,14 +40,16 @@ export default {
         return this.icons.reduce((o, key) => ({ ...o, [key]: ''}), {});
       }
 
-      // footer icons
-      const obj = { ...this.icons };
+      // omit facebook & bandsintown - not maintained
+      const omit = ['bandsintown', 'facebook'];
 
-      // hide facebook & bandsintown - not maintained
-      delete obj.facebook;
-      delete obj.bandsintown;
-
-      return obj;
+      return Object.keys({ ...this.icons })
+        .reduce((newObj, key) => {
+          return {
+            ...newObj,
+            ...(!omit.includes(key) && { [key]: this.icons[key] }),
+          };
+        }, {});
     },
 
     tooltipText() {
