@@ -184,7 +184,7 @@ export default {
 
     album() {
       return this.musicData.filter((i) => !i.hidden &&
-        (this.$date(i.date) <= this.$date()))[0];
+        (this.$date(i.leaked || i.date) <= this.$date()))[0];
     },
 
     video() {
