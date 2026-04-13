@@ -36,9 +36,18 @@ export default {
   computed: {
     formattedIcons() {
       if (Array.isArray(this.icons)) {
+        // album icons
         return this.icons.reduce((o, key) => ({ ...o, [key]: ''}), {});
       }
-      return this.icons;
+
+      // footer icons
+      const obj = { ...this.icons };
+
+      // hide facebook & bandsintown - not maintained
+      delete obj.facebook;
+      delete obj.bandsintown;
+
+      return obj;
     },
 
     tooltipText() {
