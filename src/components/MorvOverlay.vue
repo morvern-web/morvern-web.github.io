@@ -49,6 +49,15 @@ export default {
       setTimeout(() => { this.showBg = false; }, 250);
       setTimeout(() => { this.$emit('closeOverlay'); }, 500);
     },
+
+    swapOverlay() {
+      this.setLoading();
+      this.showOverlay = false;
+      this.$nextTick(() => { this.transitionType = 'slide-up-transition'; });
+      setTimeout(() => { this.showOverlay = true; }, 500);
+      setTimeout(() => { this.transitionType = 'slide-down-transition'; }, 750);
+      setTimeout(() => { this.rmvLoading(); });
+    }
   },
 };
 </script>

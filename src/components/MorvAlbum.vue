@@ -1,5 +1,8 @@
 <template>
-  <MorvOverlay @closeOverlay="$emit('closeOverlay')">
+  <MorvOverlay
+    ref="overlay"
+    @closeOverlay="$emit('closeOverlay')"
+  >
     <template v-slot:default>
       <div class="album-container">
         <div class="album-artwork-container">
@@ -32,7 +35,12 @@
               <span v-if="album.catNumber"> - {{ album.catNumber }}</span>
             </h6>
             <h6 v-if="album.from">
-              from <span style="font-style:italic;">{{ album.from }}</span>
+              From the {{ isAlbum(album.from) ? 'album' : 'EP' }}
+              <span
+                class="clickable"
+                style="font-style:italic;"
+                @click="swapItem(album.from)"
+              >{{ album.from }}</span>
             </h6>
           </div>
 
@@ -51,6 +59,8 @@
                   <li
                     v-for="track in album.tracklist"
                     :key="track"
+                    :class="{ clickable: isSingle(track) }"
+                    @click="isSingle(track) ? swapItem(track) : null"
                   >
                     {{ track }}
                   </li>
@@ -118,7 +128,12 @@
             </span>
           </h6>
           <h6 v-if="album.from">
-            from <span style="font-style:italic;">{{ album.from }}</span>
+            From the {{ isAlbum(album.from) ? 'album' : 'EP' }}
+            <span
+              class="clickable"
+              style="font-style:italic;"
+              @click="swapItem(album.from)"
+            >{{ album.from }}</span>
           </h6>
         </div>
 
@@ -147,6 +162,8 @@
                     <li
                       v-for="track in album.tracklist"
                       :key="track"
+                      :class="{ clickable: isSingle(track) }"
+                      @click="isSingle(track) ? swapItem(track) : null"
                     >
                       {{ track }}
                     </li>
@@ -202,7 +219,6 @@
           />
         </div>
       </div>
-
     </template>
   </MorvOverlay>
 </template>
@@ -232,13 +248,27 @@ export default {
     albumOptions() {
       return (album) => {
         const defaultOpts = album.type === 'single'
-          ? ['credits'] : ['tracklist', 'credits'];
-        const options = ['bandcamp', 'spotify', 'applemusic', 'deezer', 'youtube'];
+          ? ['credits', 'bandcamp'] : ['tracklist', 'credits', 'bandcamp'];
+
+        const streamOpts = this.$date(album.date) > this.$date()
+          ? [] : ['spotify', 'applemusic', 'deezer', 'youtube'];
+
         return defaultOpts.concat(
-          Object.keys(album).filter((key) => options.includes(key))
-            .sort((a, b) => options.indexOf(a) - options.indexOf(b))
+          Object.keys(album)
+            .filter((key) => streamOpts.includes(key) && album[key])
+            .sort((a, b) => streamOpts.indexOf(a) - streamOpts.indexOf(b))
         );
       };
+    },
+
+    isAlbum() {
+      return (itemTitle) => this.musicData
+        .some((i) => i.title === itemTitle && i.type === 'album');
+    },
+
+    isSingle() {
+      return (trackTitle) => this.musicData
+        .some((i) => i.title === trackTitle && i.type === 'single');
     },
   },
 
@@ -247,7 +277,25 @@ export default {
       if (typeof option !== 'string') {
         return;
       }
+
+      // if (option === 'youtube' && this.album.type === 'single') {
+      //   this.openVideo();
+      //   return;
+      // }
+
       this.selectedOption = option;
+    },
+
+    swapItem(itemTitle) {
+      this.selectedOption = null;
+      this.$refs.overlay.swapOverlay();
+      this.$emit('openItem', itemTitle);
+    },
+
+    openVideo() {
+      this.selectedOption = null;
+      this.$refs.overlay.closeOverlay();
+      this.$emit('openVideo', this.album.video || this.album.title);
     },
   },
 };

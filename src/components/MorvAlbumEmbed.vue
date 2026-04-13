@@ -15,7 +15,7 @@
         <iframe
           v-else-if="selectedOption === 'spotify'"
           class="spotify-iframe"
-          :src="`https://open.spotify.com/embed/album/${album.spotify}?utm_source=generator&theme=0`"
+          :src="`https://open.spotify.com/embed/${album.spotify}?utm_source=generator&theme=0`"
           width="100%" height="100%" frameBorder="0" allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
@@ -25,13 +25,13 @@
           v-else-if="selectedOption === 'applemusic'"
           allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="100%" style="width:100%;overflow:hidden;border-radius:10px;"
           sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-          :src="`https://embed.music.apple.com/us/album/${album.applemusic}`"
+          :src="`https://embed.music.apple.com/us/${album.applemusic}`"
         ></iframe>
 
         <iframe
           v-else-if="selectedOption === 'deezer'"
           title="deezer-widget"
-          :src="`https://widget.deezer.com/widget/dark/album/${album.deezer}`"
+          :src="`https://widget.deezer.com/widget/dark/${album.deezer}`"
           width="100%" height="100%" frameborder="0" allowtransparency="true"
           allow="encrypted-media; clipboard-write"
         ></iframe>

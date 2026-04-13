@@ -1,6 +1,5 @@
 <template>
   <main class="music-container">
-
     <div
       v-for="group, header in entries"
       :key="header"
@@ -46,6 +45,8 @@
         <MorvAlbum
           :album="selectedItem"
           @closeOverlay="selectedItem = null"
+          @openItem="openItem"
+          @openVideo="openVideo"
         />
       </div>
     </transition>
@@ -115,16 +116,27 @@ export default {
 
   mounted() {
     if (this.item) {
+      this.openItem(this.item);
+    }
+  },
+
+  methods: {
+    openItem(itemTitle) {
       setTimeout(() => {
         const entry = this.entries[this.groupHeaders.albums].find((i) =>
-          i.title === this.item)
+          i.title === itemTitle)
           || this.entries[this.groupHeaders.singles].find((i) =>
-            i.title === this.item)
+            i.title === itemTitle)
           || this.entries[this.groupHeaders.live].find((i) =>
-            i.title === this.item);
+            i.title === itemTitle);
+
         this.itemClick(entry);
       }, 350);
-    }
+    },
+
+    openVideo(trackTitle) {
+      this.$emit('routeChange', { name: 'videositem', item: trackTitle });
+    },
   },
 };
 </script>

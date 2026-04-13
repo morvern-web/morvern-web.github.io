@@ -23,6 +23,19 @@ app.use(VueDayjs);
 
 app.mixin(JsonData);
 
+app.config.globalProperties.setLoading = () => {
+  const appId = document.querySelector('#app');
+  appId.style.pointerEvents = 'none';
+  appId.style.cursor = 'none';
+};
+app.config.globalProperties.rmvLoading = () => {
+  setTimeout(() => {
+    const appId = document.querySelector('#app');
+    appId.style.pointerEvents = '';
+    appId.style.cursor = '';
+  }, 500);
+};
+
 app
   .component('MorvAlbum', MorvAlbum)
   .component('MorvAlbumEmbed', MorvAlbumEmbed)

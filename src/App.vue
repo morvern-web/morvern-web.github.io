@@ -1,4 +1,5 @@
 <template>
+  <div id="content-overlay" class="fade-in" />
   <header>
     <div class="header-container">
       <div
@@ -36,7 +37,7 @@
   </header>
 
   <main id="content">
-    <div class="content-container fade-in">
+    <div class="content-container">
       <RouterView v-slot="{ Component }">
         <transition
           :name="transitionType"
@@ -97,9 +98,10 @@ export default {
   },
 
   mounted() {
-    const content = document.querySelector('.content-container');
     this.setBg();
-    setTimeout(() => { content.classList.remove('fade-in'); }, 100);
+    const overlay = document.querySelector('#content-overlay');
+    setTimeout(() => { overlay.classList.remove('fade-in'); }, 50);
+    setTimeout(() => { overlay.style.display = 'none'; }, 1000);
   },
 
   methods: {
@@ -165,6 +167,22 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#content-overlay {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  opacity: 0;
+  background: black;
+  -webkit-transition: opacity 0.65s ease;
+  transition: opacity 0.65s ease;
+  &.fade-in {
+    opacity: 1;
+  }
+}
+
+
 header {
   width: 100%;
   background: var(--color-background);
@@ -242,16 +260,12 @@ header {
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
+
   .content-container {
     overflow: scroll;
     width: 100%;
     height: 100%;
     padding: 50px;
-    -webkit-transition: background 1s ease;
-    transition: background 1s ease;
-    &.fade-in {
-      background: black;
-    }
   }
 
   &.bg1 {

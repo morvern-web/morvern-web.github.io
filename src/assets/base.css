@@ -117,6 +117,12 @@ h1, h2, h4, .navigation-item {
   letter-spacing: 2%;
 }
 
+.clickable {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.15rem;
+}
+
 @media (width <= 512px) {
   :root {
     font-size: 13px;
