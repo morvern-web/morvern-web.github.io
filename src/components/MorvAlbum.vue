@@ -268,7 +268,8 @@ export default {
 
     isSingle() {
       return (trackTitle) => this.musicData
-        .some((i) => i.title === trackTitle && i.type === 'single');
+        .some((i) => i.title === trackTitle && i.type === 'single')
+          && this.album.type !== 'live';
     },
   },
 
