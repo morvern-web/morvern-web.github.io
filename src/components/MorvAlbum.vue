@@ -250,8 +250,7 @@ export default {
         const defaultOpts = album.type === 'single'
           ? ['credits', 'bandcamp'] : ['tracklist', 'credits', 'bandcamp'];
 
-        const streamOpts = this.$date(album.date) > this.$date()
-          ? [] : ['spotify', 'applemusic', 'deezer', 'youtube'];
+        const streamOpts = ['spotify', 'applemusic', 'deezer', 'youtube'];
 
         return defaultOpts.concat(
           Object.keys(album)
