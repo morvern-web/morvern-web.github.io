@@ -111,7 +111,7 @@ a {
   text-underline-offset: 0.15rem;
 }
 
-h1, h2, h4, .navigation-item {
+h1, h2, h4, .navigation-item, .highlight-text {
   font-family: 'Amsterdrum Grotesk';
   font-weight: lighter;
   letter-spacing: 2%;

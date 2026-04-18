@@ -41,12 +41,12 @@
   {
     "date": "2026-02-18",
     "title": "New Music from Morvern",
-    "text": "Blip-blop goes the scope. Heavy pop, crushing rhythms, dystopia-punk canons. Bloated solos dripping down your caved-in chest.<br \/><br \/>New album - <i>SUPERGLUED<\/i> - out in April."
+    "text": "Blip-blop goes the scope. Heavy pop, crushing rhythms, dystopia-punk canons. Bloated solos dripping down your caved-in chest.<br \/><br \/>New album - <span class=\"highlight-text\"><i>SUPERGLUED<\/i><\/span> - out in April."
   },
   {
     "date": "2026-04-01",
     "title": "New Music from Morvern",
-    "text": "Blip-blop goes the scope. Heavy pop, crushing rhythms, dystopia-punk canons. Bloated solos dripping down your caved-in chest.<br \/><br \/>New album - <i>SUPERGLUED<\/i> - out 14.04.2026",
+    "text": "Blip-blop goes the scope. Heavy pop, crushing rhythms, dystopia-punk canons. Bloated solos dripping down your caved-in chest.<br \/><br \/>New album - <span class=\"highlight-text\"><i>SUPERGLUED<\/i><\/span> - out 14.04.2026",
     "image": "superglued",
     "imgType": "videos",
     "imgItem": "superglued"
@@ -54,7 +54,7 @@
   {
     "date": "2026-04-12",
     "title": "New Music from Morvern",
-    "text": "SUGAR-COATED ANTHEMS OF DARK HUMOR & PURE TERROR HOOKS<br \/><br \/>New album - <i>SUPERGLUED<\/i> - out NOW!<br \/><br \/>Join us for the launch party stream - Afterparty @ Radio Študent - 14.04.2026",
+    "text": "SUGAR-COATED ANTHEMS OF DARK HUMOR & PURE TERROR HOOKS<br \/><br \/>New album - <span class=\"highlight-text\"><i>SUPERGLUED<\/i><\/span> - out NOW!<br \/><br \/>Join us for the launch party stream - Afterparty @ Radio Študent - 14.04.2026",
     "image": "afterparty",
     "imgType": "videos",
     "imgUrl": "https://radiostudent.si/glasba/afterparty/morvern-0"
@@ -62,9 +62,9 @@
   {
     "date": "2026-04-15",
     "title": "New Music from Morvern",
-    "text": "SUGAR-COATED ANTHEMS OF DARK HUMOR & PURE TERROR HOOKS<br \/><br \/>New album - <i>SUPERGLUED<\/i> - out NOW!<br \/><br \/>Check out the launch party stream - Afterparty @ Radio Študent",
-    "image": "afterparty",
-    "imgType": "videos",
-    "imgUrl": "https://radiostudent.si/glasba/afterparty/morvern-0"
+    "text": "SUGAR-COATED ANTHEMS OF DARK HUMOR & PURE TERROR HOOKS<br \/><br \/>New album - <span class=\"highlight-text\"><i>SUPERGLUED<\/i><\/span> - out NOW!",
+    "image": "superglued",
+    "imgType": "music",
+    "imgItem": "superglued"
   }
 ]

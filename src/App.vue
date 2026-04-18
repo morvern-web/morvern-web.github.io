@@ -61,7 +61,7 @@
       <div class="footer-copyright">
         <div>© 2024-2026 Morvern</div>
         <div>
-          <span @click="setBg">photo:</span>
+          <span @click="setBg">photo: </span>
           <a href="https://www.instagram.com/to_ni_res" target="_blank" rel="external">Tilen Ritter</a>
         </div>
       </div>
