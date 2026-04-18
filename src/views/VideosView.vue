@@ -106,16 +106,23 @@ export default {
     this.selectedItem = null;
   },
 
-  mounted() {
+  activated() {
     if (this.item) {
+      setTimeout(() => { this.openItem(this.item); }, 100);
+    }
+  },
+
+  methods: {
+    openItem(itemTitle) {
       setTimeout(() => {
         const video = this.videos[this.groupHeaders.promo].find((i) =>
-          i.title === this.item)
+          i.title === itemTitle)
           || this.videos[this.groupHeaders.other].find((i) =>
-            i.title === this.item);
+            i.title === itemTitle);
+
         this.itemClick(video);
       }, 350);
-    }
+    },
   },
 };
 </script>

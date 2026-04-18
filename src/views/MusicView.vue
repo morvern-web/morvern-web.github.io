@@ -114,9 +114,9 @@ export default {
     this.selectedItem = null;
   },
 
-  mounted() {
+  activated() {
     if (this.item) {
-      this.openItem(this.item);
+      setTimeout(() => { this.openItem(this.item); }, 100);
     }
   },
 

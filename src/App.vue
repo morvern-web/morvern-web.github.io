@@ -43,10 +43,12 @@
           :name="transitionType"
           mode="out-in"
         >
-          <component
-            :is="Component"
-            @routeChange="changeRoute"
-          />
+          <keep-alive>
+            <component
+              :is="Component"
+              @routeChange="changeRoute"
+            />
+          </keep-alive>
         </transition>
       </RouterView>
     </div>
@@ -99,7 +101,7 @@ export default {
 
   mounted() {
     this.setBg();
-    this.setUrlPath();
+    this.getUrlPath();
 
     const overlay = document.querySelector('#content-overlay');
     setTimeout(() => { overlay.classList.remove('fade-in'); }, 50);
@@ -107,7 +109,7 @@ export default {
   },
 
   methods: {
-    setUrlPath() {
+    getUrlPath() {
       const paths = window.location.pathname.split('/').filter(Boolean);
       const route = paths.find((i) => {
         return this.$router.getRoutes().find((x) => x.name === i);

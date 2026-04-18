@@ -247,10 +247,12 @@ export default {
   computed: {
     albumOptions() {
       return (album) => {
-        const defaultOpts = album.type === 'single'
-          ? ['credits', 'bandcamp'] : ['tracklist', 'credits', 'bandcamp'];
-
+        const defaultOpts = ['tracklist', 'credits', 'bandcamp'];
         const streamOpts = ['spotify', 'applemusic', 'deezer', 'youtube'];
+
+        if (album.type === 'single') {
+          defaultOpts.shift(); // rmv tracklist option
+        }
 
         return defaultOpts.concat(
           Object.keys(album)
