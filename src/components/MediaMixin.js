@@ -16,6 +16,7 @@ export default {
         : `../assets/${type}/${filename}`;
 
       const modules = import.meta.glob('../assets/*/*', { eager: true });
+      // TO DO: import images only when needed, not all at once
 
       return modules[path].default;
     },

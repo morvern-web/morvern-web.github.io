@@ -99,12 +99,24 @@ export default {
 
   mounted() {
     this.setBg();
+    this.setUrlPath();
+
     const overlay = document.querySelector('#content-overlay');
     setTimeout(() => { overlay.classList.remove('fade-in'); }, 50);
     setTimeout(() => { overlay.style.display = 'none'; }, 1000);
   },
 
   methods: {
+    setUrlPath() {
+      const paths = window.location.pathname.split('/').filter(Boolean);
+      const route = paths.find((i) => {
+        return this.$router.getRoutes().find((x) => x.name === i);
+      });
+
+      this.changeRoute(route || null);
+      history.replaceState({}, null, '/');
+    },
+
     changeRoute(route = null) {
       this.mobileMenuHidden = true;
 
