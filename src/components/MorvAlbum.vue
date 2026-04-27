@@ -4,7 +4,10 @@
     @closeOverlay="$emit('closeOverlay')"
   >
     <template v-slot:default>
-      <div class="album-container">
+      <div
+        v-if="!isMobile"
+        class="album-container"
+      >
         <div class="album-artwork-container">
           <img
             class="album-artwork"
@@ -108,7 +111,10 @@
         </div>
       </div>
 
-      <div class="album-container-mobile">
+      <div
+        v-else
+        class="album-container-mobile"
+      >
         <div class="album-title-container">
           <h3
             class="album-title"
@@ -247,8 +253,20 @@ export default {
   computed: {
     albumOptions() {
       return (album) => {
-        const defaultOpts = ['tracklist', 'credits', 'bandcamp'];
-        const streamOpts = ['spotify', 'applemusic', 'deezer', 'youtube'];
+        const defaultOpts = [
+          'tracklist',
+          'credits',
+          'bandcamp',
+        ];
+
+        const streamOpts = [
+          'spotify',
+          'applemusic',
+          'youtubemusic',
+          'amazonmusic',
+          'deezer',
+          'tidal',
+        ];
 
         if (album.type === 'single') {
           defaultOpts.shift(); // rmv tracklist option
@@ -271,6 +289,10 @@ export default {
       return (trackTitle) => this.musicData
         .some((i) => i.title === trackTitle && i.type === 'single')
           && this.album.type !== 'live';
+    },
+
+    isMobile() {
+      return window.innerWidth < 800;
     },
   },
 
@@ -316,7 +338,7 @@ export default {
 .album-artwork-container {
   .album-artwork {
     object-fit: contain;
-    height: calc(100% - 47px);
+    height: calc(100% - 50px);
     border-radius: 10px;
     border: 1px solid grey;
   }
@@ -436,7 +458,7 @@ export default {
             width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-around;
             .album-artwork {
               display: block;
               width: 100%;

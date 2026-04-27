@@ -8,7 +8,7 @@
       @click="handleClick(url, key)"
     >
       <div class="icon-tooltip">
-        {{ tooltipText(key) }}
+        {{ readableName(key) }}
       </div>
     </div>
   </div>
@@ -27,9 +27,17 @@ export default {
       type: String,
       default: '',
     },
+    resize: {
+      type: Boolean,
+      default: true,
+    },
     selected: {
       type: String,
       default: '',
+    },
+    list: {
+      type: Boolean,
+      default: false,
     },
   },
 
@@ -40,8 +48,20 @@ export default {
         return this.icons.reduce((o, key) => ({ ...o, [key]: ''}), {});
       }
 
-      // omit facebook & bandsintown - not maintained
-      const omit = ['bandsintown', 'facebook'];
+      // omit unmaintained sites
+      let omit = ['bandsintown', 'boomplay', 'facebook'];
+
+      if (!this.list) {
+        omit.push(...[
+          'boomplay',
+          'kkbox',
+          'pandora',
+          'shazam',
+          'soundcloud',
+          'qobuz',
+          'youseemusik',
+        ]);
+      }
 
       return Object.keys({ ...this.icons })
         .reduce((newObj, key) => {
@@ -52,17 +72,74 @@ export default {
         }, {});
     },
 
-    tooltipText() {
+    readableName() {
       return (string) => {
-        return (string === 'applemusic') ? 'Apple Music'
-          : (string === 'bandsintown') ? 'bandsintown'
-            : (string === 'youtube') ? 'YouTube'
-              : string.charAt(0).toUpperCase() + string.slice(1);
+        if (['bandsintown', 'qobuz'].includes(string)) {
+          return string;
+        }
+
+        if (['kkbox'].includes(string)) {
+          return string.toUpperCase();
+        }
+
+        if (string.includes('youtube')) {
+          string = string.replace('tube', 'Tube');
+        }
+
+        if (string.includes('soundcloud')) {
+          string = string.replace('cloud', 'Cloud');
+        }
+
+        if (string.includes('yousee')) {
+          string = string.replace('see', 'See');
+        }
+
+        const match = string.match(/mu(s|z)i(c|k)/);
+        if (match) {
+          let arr = [
+            string.substr(0, match.index),
+            string.substr(match.index),
+          ];
+          arr[1] = arr[1].charAt(0).toUpperCase() + arr[1].slice(1);
+          string = arr.join(' ');
+        }
+
+        return string.charAt(0).toUpperCase() + string.slice(1);
       };
     },
   },
 
+  mounted() {
+    this.setIconSize();
+  },
+
   methods: {
+    setIconSize() {
+      if (!this.resize || this.size === 'small') {
+        return;
+      }
+
+      const container = document.querySelector('.icon-container');
+      const icons = container.querySelectorAll('.icon');
+
+      icons.forEach((i) => {
+        i.style.height = '';
+        i.style.flexShrink = 1;
+      });
+
+      this.$nextTick(() => {
+        const style = window.getComputedStyle(icons[0]);
+
+        if (style.height === style.width) {
+          return;
+        }
+
+        icons.forEach((i) => {
+          i.style.height = i.style.width;
+        });
+      });
+    },
+
     handleClick(url = null, key = null) {
       if (!url) {
         return this.$emit('click', key);
@@ -75,17 +152,22 @@ export default {
 
 <style lang="less" scoped>
 .icon-container {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+
+  &:has(.small) {
+    flex-wrap: wrap;
+  }
 
   .icon {
     position: relative;
     cursor: pointer;
     height: 35px;
-    width: 35px;
+    flex: 0 0 35px;
     margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
     border: 2.5px solid grey;
     border-radius: 50%;
     background-color: black;
@@ -171,6 +253,17 @@ export default {
     }
   }
 
+  .amazonmusic {
+    &:before {
+      height: calc(100% - 8px);
+      width: calc(100% - 8px);
+      top: 4px;
+      left: 4px;
+      -webkit-mask-image: url('@/assets/icons/amazonmusic.svg');
+      mask-image: url('@/assets/icons/amazonmusic.svg');
+    }
+  }
+
   .applemusic {
     &:before {
       height: calc(100% - 8px);
@@ -193,6 +286,19 @@ export default {
     &:before {
       -webkit-mask-image: url('@/assets/icons/bandsintown.svg');
       mask-image: url('@/assets/icons/bandsintown.svg');
+    }
+  }
+
+  .boomplay {
+    background-color: grey;
+    &:before {
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: black;
+      -webkit-mask-image: url('@/assets/icons/boomplay.png');
+      mask-image: url('@/assets/icons/boomplay.png');
     }
   }
 
@@ -237,6 +343,17 @@ export default {
     }
   }
 
+  .kkbox {
+    &:before {
+      height: calc(100% - 2px);
+      width: calc(100% - 2px);
+      top: 1px;
+      left: 1px;
+      -webkit-mask-image: url('@/assets/icons/kkbox.png');
+      mask-image: url('@/assets/icons/kkbox.png');
+    }
+  }
+
   .linkpop {
     &:before {
       height: calc(100% - 8px);
@@ -259,10 +376,74 @@ export default {
     }
   }
 
+  .pandora {
+    &:before {
+      height: calc(100% - 10px);
+      width: calc(100% - 10px);
+      top: 5px;
+      left: 6px;
+      -webkit-mask-image: url('@/assets/icons/pandora.svg');
+      mask-image: url('@/assets/icons/pandora.svg');
+    }
+  }
+
+  .qobuz {
+    &:before {
+      -webkit-mask-image: url('@/assets/icons/qobuz.svg');
+      mask-image: url('@/assets/icons/qobuz.svg');
+    }
+  }
+
+  .shazam {
+    background-color: grey;
+    &:before {
+      background-color: black;
+      height: 100%;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      -webkit-mask-image: url('@/assets/icons/shazam.svg');
+      mask-image: url('@/assets/icons/shazam.svg');
+    }
+  }
+
+  .soundcloud {
+    &:before {
+      height: calc(100% - 6px);
+      width: calc(100% - 6px);
+      top: 2px;
+      left: 3px;
+      -webkit-mask-image: url('@/assets/icons/soundcloud.svg');
+      mask-image: url('@/assets/icons/soundcloud.svg');
+    }
+  }
+
   .spotify {
     &:before {
       -webkit-mask-image: url('@/assets/icons/spotify.svg');
       mask-image: url('@/assets/icons/spotify.svg');
+    }
+  }
+
+  .tidal {
+    &:before {
+      height: calc(100% - 6px);
+      width: calc(100% - 6px);
+      top: 3px;
+      left: 3px;
+      -webkit-mask-image: url('@/assets/icons/tidal.svg');
+      mask-image: url('@/assets/icons/tidal.svg');
+    }
+  }
+
+  .youseemusik {
+    &:before {
+      height: calc(100% - 8px);
+      width: calc(100% - 8px);
+      top: 3.5px;
+      left: 3.5px;
+      -webkit-mask-image: url('@/assets/icons/youseemusik.svg');
+      mask-image: url('@/assets/icons/youseemusik.svg');
     }
   }
 
@@ -277,12 +458,24 @@ export default {
     }
   }
 
+  .youtubemusic {
+    &:before {
+      height: calc(100% - 2px);
+      width: calc(100% - 2px);
+      top: 1px;
+      left: 1px;
+      -webkit-mask-image: url('@/assets/icons/youtubemusic.svg');
+      mask-image: url('@/assets/icons/youtubemusic.svg');
+    }
+  }
+
 
   .small {
-    margin: 3px;
+    margin-right: 2px;
+    margin-left: 2px;
     margin-bottom: 5px;
     height: 30px;
-    width: 30px;
+    flex: 0 0 30px;
 
     &.cover {
       &:before {
@@ -325,7 +518,7 @@ export default {
         height: calc(100% - 6px);
         width: calc(100% - 6px);
         top: 2px;
-        left: 3px;
+        left: 2.5px;
       }
     }
 
@@ -362,7 +555,7 @@ export default {
         }
       }
     }
-    .bandcamp, .facebook, .spotify {
+    .bandcamp, .boomplay, .facebook, .shazam, .spotify {
       &:hover {
         background-color: white;
         &:before {

@@ -59,6 +59,7 @@
       <MorvIcons
         :icons="linkData[0]"
         size="small"
+        :resize="false"
       />
       <div class="footer-copyright">
         <div>© 2024-2026 Morvern</div>
@@ -244,7 +245,7 @@ header {
         margin: auto;
         height: 45px;
         min-width: 4.5rem;
-        padding: 10px 5px;
+        padding: 10px 15px;
         border-left: 1.5px solid grey;
         text-align: center;
         font-size: 1.3rem;
@@ -272,7 +273,7 @@ header {
   position: relative;
   overflow: hidden;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: top center;
   background-size: cover;
 
   .content-container {
@@ -452,7 +453,7 @@ footer {
   }
 
   #content {
-    background-position: top;
+    background-position: top center;
     .content-container {
       padding: 0;
       main {
@@ -548,8 +549,7 @@ footer {
 
   footer {
     .footer-container {
-      padding: 5px;
-      padding-top: 10px;
+      padding: 10px;
       flex-wrap: wrap;
       div {
         flex: 0 0 100%;

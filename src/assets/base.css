@@ -117,6 +117,10 @@ h1, h2, h4, .navigation-item, .highlight-text {
   letter-spacing: 2%;
 }
 
+.highlight-text {
+  white-space: nowrap;
+}
+
 .clickable {
   cursor: pointer;
   text-decoration: underline;

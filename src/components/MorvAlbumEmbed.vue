@@ -7,43 +7,71 @@
       >
         <iframe
           v-if="selectedOption === 'bandcamp'"
-          class="bandcamp-iframe"
           :src="`https://bandcamp.com/EmbeddedPlayer/${album.bandcamp}/size=large/bgcol=333/linkcol=fff/tracklist=true/artwork=small/transparent=true/`"
-          seamless
-        ></iframe>
+          width="100%" height="100%" frameborder="0"
+          loading="lazy"
+          title="Bandcamp"
+        />
+
+        <iframe
+          v-else-if="selectedOption === 'amazonmusic'"
+          :src="`https://music.amazon.com/embed/${album.amazonmusic}/`"
+          width="100%" height="100%" frameborder="0"
+          style="border-radius:20px;max-width:"
+          loading="lazy"
+          title="Amazon Music"
+        />
+
+        <iframe
+          v-else-if="selectedOption === 'applemusic'"
+          :src="`https://embed.music.apple.com/us/${album.applemusic}`"
+          allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+          width="100%" height="100%" frameborder="0"
+          style="overflow:hidden;border-radius:10px;"
+          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+          loading="lazy"
+          title="Apple Music"
+        />
+
+        <iframe
+          v-else-if="selectedOption === 'deezer'"
+          :src="`https://widget.deezer.com/widget/dark/${album.deezer}`"
+          width="100%" height="100%" frameborder="0"
+          allowtransparency="true"
+          allow="encrypted-media; clipboard-write"
+          loading="lazy"
+          title="Deezer"
+        />
 
         <iframe
           v-else-if="selectedOption === 'spotify'"
           class="spotify-iframe"
           :src="`https://open.spotify.com/embed/${album.spotify}?utm_source=generator&theme=0`"
-          width="100%" height="100%" frameBorder="0" allowfullscreen=""
+          width="100%" height="100%" frameBorder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
-        ></iframe>
+          title="Spotify"
+        />
 
         <iframe
-          v-else-if="selectedOption === 'applemusic'"
-          allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="100%" style="width:100%;overflow:hidden;border-radius:10px;"
-          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-          :src="`https://embed.music.apple.com/us/${album.applemusic}`"
-        ></iframe>
+          v-else-if="selectedOption === 'tidal'"
+          :src="`https://embed.tidal.com/${album.tidal}`"
+          width="100%" height="100%" frameBorder="0"
+          allow="encrypted-media; fullscreen; clipboard-write https://embed.tidal.com; web-share"
+          sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
+          style="color-scheme: light dark"
+          loading="lazy"
+          title="Tidal"
+        />
 
         <iframe
-          v-else-if="selectedOption === 'deezer'"
-          title="deezer-widget"
-          :src="`https://widget.deezer.com/widget/dark/${album.deezer}`"
-          width="100%" height="100%" frameborder="0" allowtransparency="true"
-          allow="encrypted-media; clipboard-write"
-        ></iframe>
-
-        <iframe
-          v-else-if="selectedOption === 'youtube'"
-          width="100%" height="100%"
-          :src="`https://www.youtube-nocookie.com/embed/${album.youtube}`"
-          title="YouTube video player" frameborder="0"
+          v-else-if="selectedOption === 'youtubemusic'"
+          :src="`https://www.youtube-nocookie.com/embed/${album.youtubemusic}`"
+          width="100%" height="100%" frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          loading="lazy"
+          title="YouTube Music"
+        />
 
       </transition>
     </div>
