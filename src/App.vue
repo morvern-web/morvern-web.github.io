@@ -358,6 +358,7 @@ footer {
     :deep(.icon-container) {
       .icon {
         margin-top: 0;
+        margin-bottom: 5px;
       }
     }
     .footer-copyright {
@@ -526,7 +527,7 @@ footer {
 
   footer {
     .footer-container {
-      padding: 15px 25px;
+      padding: 10px 20px;
     }
   }
 }

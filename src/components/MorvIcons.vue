@@ -127,7 +127,7 @@ export default {
         i.style.flexShrink = 1;
       });
 
-      this.$nextTick(() => {
+      setTimeout(() => {
         const style = window.getComputedStyle(icons[0]);
 
         if (style.height === style.width) {
@@ -135,9 +135,9 @@ export default {
         }
 
         icons.forEach((i) => {
-          i.style.height = i.style.width;
+          i.style.height = style.width;
         });
-      });
+      }, 100);
     },
 
     handleClick(url = null, key = null) {
@@ -235,7 +235,7 @@ export default {
     }
   }
 
-  .bandcamp, .spotify {
+  .bandcamp, .spotify, .youtubemusic {
     background-color: grey;
     border: 2px solid grey;
     &:before {
@@ -258,7 +258,7 @@ export default {
       height: calc(100% - 8px);
       width: calc(100% - 8px);
       top: 4px;
-      left: 4px;
+      left: 3.5px;
       -webkit-mask-image: url('@/assets/icons/amazonmusic.svg');
       mask-image: url('@/assets/icons/amazonmusic.svg');
     }
@@ -266,10 +266,10 @@ export default {
 
   .applemusic {
     &:before {
-      height: calc(100% - 8px);
-      width: calc(100% - 8px);
-      top: 3px;
-      left: 4px;
+      height: calc(100% - 6px);
+      width: calc(100% - 6px);
+      top: 2px;
+      left: 2.5px;
       -webkit-mask-image: url('@/assets/icons/applemusic.svg');
       mask-image: url('@/assets/icons/applemusic.svg');
     }
@@ -304,10 +304,10 @@ export default {
 
   .deezer {
     &:before {
-      height: calc(100% - 8px);
-      width: calc(100% - 8px);
-      top: 5px;
-      left: 4px;
+      height: calc(100% - 6px);
+      width: calc(100% - 6px);
+      top: 4px;
+      left: 3px;
       -webkit-mask-image: url('@/assets/icons/deezer.svg');
       mask-image: url('@/assets/icons/deezer.svg');
     }
@@ -427,10 +427,10 @@ export default {
 
   .tidal {
     &:before {
-      height: calc(100% - 6px);
-      width: calc(100% - 6px);
-      top: 3px;
-      left: 3px;
+      height: calc(100% - 7px);
+      width: calc(100% - 7px);
+      top: 4px;
+      left: 3.5px;
       -webkit-mask-image: url('@/assets/icons/tidal.svg');
       mask-image: url('@/assets/icons/tidal.svg');
     }
@@ -459,11 +459,8 @@ export default {
   }
 
   .youtubemusic {
+    border-width: 1px;
     &:before {
-      height: calc(100% - 2px);
-      width: calc(100% - 2px);
-      top: 1px;
-      left: 1px;
       -webkit-mask-image: url('@/assets/icons/youtubemusic.svg');
       mask-image: url('@/assets/icons/youtubemusic.svg');
     }
@@ -473,7 +470,7 @@ export default {
   .small {
     margin-right: 2px;
     margin-left: 2px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     height: 30px;
     flex: 0 0 30px;
 
@@ -522,6 +519,15 @@ export default {
       }
     }
 
+    &.amazonmusic {
+      &:before {
+        height: calc(100% - 8px);
+        width: calc(100% - 8px);
+        top: 4px;
+        left: 3.5px;
+      }
+    }
+
     &.deezer {
       &:before {
         height: calc(100% - 6px);
@@ -555,7 +561,7 @@ export default {
         }
       }
     }
-    .bandcamp, .boomplay, .facebook, .shazam, .spotify {
+    .bandcamp, .boomplay, .facebook, .shazam, .spotify, .youtubemusic {
       &:hover {
         background-color: white;
         &:before {
