@@ -15,9 +15,13 @@ export default {
         ? `../assets/videos/${filename}`
         : `../assets/${type}/${filename}`;
 
-      const modules = import.meta.glob('../assets/*/*', { eager: true });
+      const modules = import.meta.glob([
+        '../assets/music/*',
+        '../assets/videos/*',
+        '../assets/news/*',
+      ], { eager: true });
 
-      return modules[path].default;
+      return modules[path]?.default;
     },
 
     itemClick(item) {

@@ -221,7 +221,7 @@ header {
       font-size: 2rem;
       font-style: italic;
       font-weight: 900;
-      background-image: url('@/assets/logo.svg');
+      background-image: url('@/assets/logo.webp');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
