@@ -10,8 +10,8 @@ export default defineConfig({
   plugins: [
     vue(),
     ViteImageOptimizer({
-      jpg: { quality: 80 },
-      jpeg: { quality: 80 },
+      jpg: { quality: 80, progressive: true, optimiseScans: true },
+      jpeg: { quality: 80, progressive: true, optimiseScans: true },
       png: { quality: 80 },
       webp: { quality: 82 },
       svg: {
